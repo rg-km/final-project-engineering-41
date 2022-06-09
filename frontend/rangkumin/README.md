@@ -45,6 +45,10 @@ npm install bootstrap
 * Import file ini di index.js *
 import "bootstrap/dist/css/bootstrap.css";
 
+## React Icon Install
+npm install react-icons --save
+
+https://react-icons.github.io/react-icons/
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).

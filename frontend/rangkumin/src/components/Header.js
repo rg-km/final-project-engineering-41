@@ -13,7 +13,7 @@ export default function Header() {
             <Navbar expand="lg">
                 <Container>
                     <div style={{width: "30%"}}>
-                        <Navbar.Brand href="#home" width="30%"><img src={logoWhite} alt="Logo image" width="180" height="auto" className="d-inline-block align-top"></img></Navbar.Brand>
+                        <Navbar.Brand href="#home" width="30%"><img src={logoWhite} alt="Logo-Img" width="180" height="auto" className="d-inline-block align-top"></img></Navbar.Brand>
                     </div>
                     <div>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
