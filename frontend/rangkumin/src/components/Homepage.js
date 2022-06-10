@@ -28,14 +28,14 @@ function Homepage() {
                                 </div>
                             </div>
                             <label className='hero-title fw-bold text-white' >Lorem ipsum dolor sit amet.</label>
-                            <p className='text-white fs-6'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique vulputate laoreet. In consectetur ultrices urna sed pulvinar. Etiam at porttitor orci. Vivamus interdum lacus.</p>
+                            <p className='text-white hero-sub'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique vulputate laoreet. In consectetur ultrices urna sed pulvinar. Etiam at porttitor orci. Vivamus interdum lacus.</p>
                             
                             <button className="btn-Custom px-4 p-2">See Courses</button>
                             <button className="btn-Custom px-4 mx-4 p-2">Berlangganan</button>
                         </div>
                     </Col>
-                    <Col>
-                        <img src={heroReading} className='img-fluid p-5' alt='img-hero'></img>
+                    <Col className="d-flex align-items-center mb-5">
+                        <img src={heroReading} className='img-fluid' alt='img-hero'></img>
                     </Col>
                 </Row>
             </Container> 
@@ -43,9 +43,12 @@ function Homepage() {
         </Container>
         {/* Content */}
         <Container className='mt-5'>
-                <div className='text-center'>
-                    <p className='fs-6 text-secondary'>Our Courses</p>
-                    <h2 className='mb-5' style={{ fontWeight:"700" }}>Browse Our Best Courses</h2>
+            {/* Popular Courses */}
+            <div className='text-center mb-5'>
+                <p className='fs-6 text-secondary'>Our Courses</p>
+                <h2 className='mb-5' style={{ fontWeight:"700" }}>Browse Our Best Courses</h2>
+                <div className='position-relative'>
+                    <div className='position-absolute card-Bg start-0 translate-middle-y'></div>
                     <Row>
                         <Col className='d-flex justify-content-center'>
                             <Card style={{ width: '14rem' }} className="card-Custom mb-5 p-2 text-start">
@@ -64,6 +67,22 @@ function Homepage() {
                         </Col>
                     </Row>
                 </div>
+            </div>
+            {/* End Popular Courses */}
+
+            {/* About & Categories */}
+            <div className='hero-About'>
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+                <div className='hero-Content'>
+                    <p>aku</p>
+                </div>
+            </div>
+            {/* End About & Categories */}
         </Container>
         {/* End Content */}
     </>
