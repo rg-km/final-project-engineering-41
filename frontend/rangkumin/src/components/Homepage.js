@@ -12,10 +12,13 @@ import contentCard from '../assets/content-card.png'
 import Math from '../assets/Math.png'
 import SD from '../assets/SD.png'
 import heroBoy from '../assets/hero-boy-reading.png'
-import Header from './Header'
 import SMP from '../assets/SMP.png'
 import SMA from '../assets/SMA.png'
 import CatOnBooks from '../assets/catonbooks.png'
+
+import ListCourses from './ListCourses.js'
+import Header from './Header'
+
 
 function Homepage() {
   return (
@@ -249,6 +252,15 @@ function Homepage() {
 
             {/* Latest Courses */}
             <div className='Latest-Container mt-Custom10'>
+                <div className='d-flex justify-content-between mb-4'>
+                    <div>
+                        <h2 className='fw-bold'>Latest Courses</h2>
+                    </div>
+                    <div>
+                        <button className='btn-Custom py-2 px-4'>See More...</button>
+                    </div>
+                </div>
+                <ListCourses/>
             </div>
             {/* End Latest Courses */}
         </Container>
