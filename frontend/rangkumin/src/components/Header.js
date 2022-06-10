@@ -11,7 +11,7 @@ export default function Header() {
         <Container fluid style={{ backgroundColor : "#13222C", }}>   
         {/* NavBar */}
             <Navbar expand="lg">
-                <Container>
+                <Container className='mt-3'>
                     <div style={{width: "30%"}}>
                         <Navbar.Brand href="#home" width="30%"><img src={logoWhite} alt="Logo-Img" width="180" height="auto" className="d-inline-block align-top"></img></Navbar.Brand>
                     </div>
