@@ -6,10 +6,18 @@ import { Container, Row, Col, Card } from 'react-bootstrap'
 
 
 import { TbMathSymbols } from "react-icons/tb";
+import {BiBook} from "react-icons/bi";
 
 import heroReading from '../assets/hero-reading.png'
 import contentCard from '../assets/content-card.png'
+import Rectangle from '../assets/Rectangle 51.png'
+import Ellipse from '../assets/Ellipse 1.png'
+import Math from '../assets/Math.png'
+import SD from '../assets/SD.png'
+import heroBoy from '../assets/hero-boy-reading.png'
 import Header from './Header'
+import SMP from '../assets/SMP.png'
+import SMA from '../assets/SMA.png'
 
 function Homepage() {
   return (
@@ -69,21 +77,81 @@ function Homepage() {
                 </div>
             </div>
             {/* End Popular Courses */}
-
-            {/* About & Categories */}
-            <div className='hero-About'>
-                <div>
-
-                </div>
-                <div>
-
-                </div>
-                <div className='hero-Content'>
-                    <p>aku</p>
-                </div>
-            </div>
-            {/* End About & Categories */}
         </Container>
+
+        {/* About & Categories */}
+        <Container fluid className="my-5" style={{ background: "#EBE7D9"}}>
+            <Container>
+                <div className='hero-About my-5 d-flex p-5 '>
+                    <div className='hero-Right-Content d-flex align-items-center'>
+                        <img src={heroBoy} className="img-fluid"></img>
+                    </div>
+                    <div className='hero-Left-Content ps-4'>
+                        <h2 className='fw-bold mb-3' style={{ fontSize: "48px" }}>Praesent pharetra hendrerit dapibus. Integer.</h2>
+                        <p className='text-secondary '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique vulputate laoreet. In consectetur ultrices urna sed pulvinar. Etiam at porttitor orci. Vivamus interdum lacus.</p>
+                        <Row>
+                            <Col className='d-flex justify-content-start my-3' lg={6} >
+                                <div className='bg-Icon'>
+                                    <img src={Math} style={{ width:"15%" }}></img>
+                                    <span className='px-2'>100+ Materi</span>
+                                </div>
+                            </Col>
+                            <Col className='d-flex justify-content-start my-3' lg={6} >
+                                <div className='bg-Icon'>
+                                    <img src={Math} style={{ width:"15%" }}></img>
+                                    <span className='px-2'>100+ Materi</span>
+                                </div>
+                            </Col>
+                            <Col className='d-flex justify-content-start my-3' lg={6} >
+                                <div className='bg-Icon'>
+                                    <img src={Math} style={{ width:"15%" }}></img>
+                                    <span className='px-2'>100+ Materi</span>
+                                </div>
+                            </Col>
+                            <Col className='d-flex justify-content-start my-3' lg={6} >
+                                <div className='bg-Icon'>
+                                    <img src={Math} style={{ width:"15%" }}></img>
+                                    <span className='px-2'>100+ Materi</span>
+                                </div>
+                            </Col>
+                        </Row>
+                    </div>
+                </div>
+                 {/*Categories*/}
+                <div className='position-relative d-flex'>
+                    <div className="position-absolute top-0 start-50 translate-middle" style={{width:"100%"}}> 
+                        <Row className=''>
+                            <Col className='d-flex justify-content-center'>
+                                <Card className='card-Categories' style={{ width: '14rem' }}>
+                                    <Card.Body>
+                                        <Card.Img variant="top" src={SD} className="rounded mx-auto p-2 d-block" style={{ width: "50%" }}/>
+                                        <Card.Title className='text-center fw-bold m-1'>SD</Card.Title>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                            <Col className='d-flex justify-content-center'>
+                                <Card className='card-Categories' style={{ width: '14rem' }}>
+                                    <Card.Body>
+                                        <Card.Img variant="top" src={SMP} className="rounded mx-auto p-2 d-block" style={{ width: "50%" }}/>
+                                        <Card.Title className='text-center fw-bold m-1'>SMP</Card.Title>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                            <Col className='d-flex justify-content-center'>
+                                <Card className='card-Categories' style={{ width: '14rem' }}>
+                                    <Card.Body>
+                                        <Card.Img variant="top" src={SMA} className="rounded mx-auto p-2 d-block" style={{ width: "50%" }}/>
+                                        <Card.Title className='text-center fw-bold m-1 '>SMA</Card.Title>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        </Row>
+                    </div>
+                </div>
+            </Container>
+        </Container>
+        {/* End About & Categories */}
+        
         {/* End Content */}
     </>
   )
