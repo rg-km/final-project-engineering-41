@@ -15,6 +15,7 @@ import heroBoy from '../assets/hero-boy-reading.png'
 import Header from './Header'
 import SMP from '../assets/SMP.png'
 import SMA from '../assets/SMA.png'
+import CatOnBooks from '../assets/catonbooks.png'
 
 function Homepage() {
   return (
@@ -77,7 +78,7 @@ function Homepage() {
         </Container>
 
         {/* About & Categories */}
-        <Container fluid className="my-5" style={{ background: "#EBE7D9"}}>
+        <Container fluid className="mt-Custom10" style={{ background: "#EBE7D9"}}>
             <Container>
                 <div className='hero-About my-5 d-flex p-5 '>
                     <div className='hero-Right-Content d-flex align-items-center'>
@@ -149,9 +150,9 @@ function Homepage() {
         </Container>
         {/* End About & Categories */}
 
-        {/* Subscribstion */}
         <Container>
-            <div className='subscription text-center'>
+            {/* Subscribstion */}
+            <div className='mt-Custom20 text-center mb-5'>
                 <h2 className='fw-bold'>Berlangganan</h2>
                 <p className='text-secondary'>Sed quam sem, varius in finibus nec, lacinia at leo.</p>
                 <div align="center" className='mb-4'>
@@ -226,11 +227,32 @@ function Homepage() {
                             </Card.Body>
                         </div>
                     </Col>
-                    
+
                 </Row>
-            </div> 
+            </div>
+            {/* End Subscribtion */} 
+
+            {/* Banner */}
+            <div className='Banner-Container mt-Custom10 d-flex justify-content-center'>
+                <div className='Banner-Content p-5 d-flex'>
+                    <div className='Banner-Content-Text align-middle'>
+                        <p className='fs-3 fw-bold'>Log in to enjoy more benefits.</p>
+                        <p>Vivamus luctus nibh eget interdum eleifend. Curabitur suscipit elementum semper.</p>
+                        <button className="btn-Custom py-2 px-5"> Log In </button>
+                    </div>
+                    <div className='Banner-Content-Image text-end'>
+                        <img src={CatOnBooks} style={{ width: "60%" }}></img>
+                    </div>
+                </div>
+            </div>
+            {/* End Banner */}
+
+            {/* Latest Courses */}
+            <div className='Latest-Container mt-Custom10'>
+            </div>
+            {/* End Latest Courses */}
         </Container>
-        {/* End Subscribtion */}
+
         {/* End Content */}
     </>
   )
