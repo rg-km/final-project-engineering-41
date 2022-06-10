@@ -1,3 +1,7 @@
+*{
+    font-family: 'Inter', sans-serif;
+}
+
 .btn-Header{
     background-color: #F55139;
     color: white;

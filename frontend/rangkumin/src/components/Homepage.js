@@ -7,17 +7,18 @@ import { Container, Row, Col, Card } from 'react-bootstrap'
 import {TbMathSymbols} from "react-icons/tb";
 import {IoMdCheckboxOutline} from "react-icons/io";
 
-import heroReading from '../assets/hero-reading.png'
-import contentCard from '../assets/content-card.png'
-import Math from '../assets/Math.png'
-import SD from '../assets/SD.png'
-import heroBoy from '../assets/hero-boy-reading.png'
-import SMP from '../assets/SMP.png'
-import SMA from '../assets/SMA.png'
-import CatOnBooks from '../assets/catonbooks.png'
+import heroReading from '../assets/homePage/hero-reading.png'
+import contentCard from '../assets/homePage/content-card.png'
+import Math from '../assets/homePage/Math.png'
+import SD from '../assets/homePage/SD.png'
+import heroBoy from '../assets/homePage/hero-boy-reading.png'
+import SMP from '../assets/homePage/SMP.png'
+import SMA from '../assets/homePage/SMA.png'
+import CatOnBooks from '../assets/homePage/catonbooks.png'
 
 import ListCourses from './ListCourses.js'
 import Header from './Header'
+import Footer from './Footer'
 
 
 function Homepage() {
@@ -264,8 +265,10 @@ function Homepage() {
             </div>
             {/* End Latest Courses */}
         </Container>
-
         {/* End Content */}
+        <div className='mt-Custom10'>
+            <Footer/>
+        </div>
     </>
   )
 }
