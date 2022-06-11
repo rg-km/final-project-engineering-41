@@ -17,7 +17,7 @@ type Materi struct {
 }
 
 type MateriListSuccessResponse struct {
-	Products []Product `json:"materis"`
+	Materis []Materi `json:"materis"`
 }
 
 func (api *API) materiList(w http.ResponseWriter, req *http.Request) {
