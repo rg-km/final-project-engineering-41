@@ -5,7 +5,6 @@ import '../styles/homepage.css'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 
 import {TbMathSymbols} from "react-icons/tb";
-import {IoMdCheckboxOutline} from "react-icons/io";
 
 import heroReading from '../assets/homePage/hero-reading.png'
 import contentCard from '../assets/homePage/content-card.png'
@@ -19,6 +18,7 @@ import CatOnBooks from '../assets/homePage/catonbooks.png'
 import ListCourses from './ListCourses.js'
 import Header from './Header'
 import Footer from './Footer'
+import CardSubscribe from './cardSubscribe.js'
 
 
 function Homepage() {
@@ -161,83 +161,18 @@ function Homepage() {
                 <p className='text-secondary'>Sed quam sem, varius in finibus nec, lacinia at leo.</p>
                 <div align="center" className='mb-4'>
                     <div className='subs-Month p-1' style={{ width: "15%" }}>
-                        <div className='btn-Custom fw-bold'>
+                        <div className='subs-montly fw-bold'>
                             Monthly
                         </div>
                     </div>
                 </div>
                 
-                <Row>
-                    <Col className='d-flex justify-content-center'>
-                        <div style={{ width: '400px' }} className="card-Subs mb-5 p-2 text-start">
-                            <Card.Body>
-                                <Card.Title className='fw-bold fs-1'>Free</Card.Title>
-                                <div className='Subs-Card-Price my-4'>
-                                    <p className='fs-2 fw-bold'>Rp. 0</p>
-                                    <label className='fw-700'>/month</label>
-                                </div>
-                                <label className='fs-5 mb-4'>Mauris hendrerit, vestibulum.</label>
-                                <div className='mb-5'>
-                                    <ul className='list-unstyled'>
-                                        <li className='fs-6 fw-400 py-2'><IoMdCheckboxOutline size={25} style={{ color:"#F55139" }}/> Lorem ipsum dolor sit amet, consectetur</li>
-                                        <li className='fs-6 fw-400 py-2'><IoMdCheckboxOutline size={25} style={{ color:"#F55139" }}/> Lorem ipsum dolor sit amet, consectetur</li>
-                                        <li className='fs-6 fw-400 py-2'><IoMdCheckboxOutline size={25} style={{ color:"#F55139" }}/> Lorem ipsum dolor sit amet, consectetur</li>
-                                        <li className='fs-6 fw-400 py-2'><IoMdCheckboxOutline size={25} style={{ color:"#F55139" }}/> Lorem ipsum dolor sit amet, consectetur</li>
-                                    </ul>
-                                </div>
-                                <button className='btn-Custom p-2' style={{ width: "100%" }}>Berlangganan</button>
-                            </Card.Body>
-                        </div>
-                    </Col>
-                    <Col className='d-flex justify-content-center'>
-                        <div style={{ width: '400px' }} className="card-Subs mb-5 p-2 text-start">
-                            <Card.Body>
-                                <Card.Title className='fw-bold fs-1'>Free</Card.Title>
-                                <div className='Subs-Card-Price my-4'>
-                                    <p className='fs-2 fw-bold'>Rp. 0</p>
-                                    <label className='fw-700'>/month</label>
-                                </div>
-                                <label className='fs-5 mb-4'>Mauris hendrerit, vestibulum.</label>
-                                <div className='mb-5'>
-                                    <ul className='list-unstyled'>
-                                        <li className='fs-6 fw-400 py-2'><IoMdCheckboxOutline size={25} style={{ color:"#F55139" }}/> Lorem ipsum dolor sit amet, consectetur</li>
-                                        <li className='fs-6 fw-400 py-2'><IoMdCheckboxOutline size={25} style={{ color:"#F55139" }}/> Lorem ipsum dolor sit amet, consectetur</li>
-                                        <li className='fs-6 fw-400 py-2'><IoMdCheckboxOutline size={25} style={{ color:"#F55139" }}/> Lorem ipsum dolor sit amet, consectetur</li>
-                                        <li className='fs-6 fw-400 py-2'><IoMdCheckboxOutline size={25} style={{ color:"#F55139" }}/> Lorem ipsum dolor sit amet, consectetur</li>
-                                    </ul>
-                                </div>
-                                <button className='btn-Custom p-2' style={{ width: "100%" }}>Berlangganan</button>
-                            </Card.Body>
-                        </div>
-                    </Col>
-                    <Col className='d-flex justify-content-center'>
-                        <div style={{ width: '400px' }} className="card-Subs mb-5 p-2 text-start">
-                            <Card.Body>
-                                <Card.Title className='fw-bold fs-1'>Free</Card.Title>
-                                <div className='Subs-Card-Price my-4'>
-                                    <p className='fs-2 fw-bold'>Rp. 0</p>
-                                    <label className='fw-700'>/month</label>
-                                </div>
-                                <label className='fs-5 mb-4'>Mauris hendrerit, vestibulum.</label>
-                                <div className='mb-5'>
-                                    <ul className='list-unstyled'>
-                                        <li className='fs-6 fw-400 py-2'><IoMdCheckboxOutline size={25} style={{ color:"#F55139" }}/> Lorem ipsum dolor sit amet, consectetur</li>
-                                        <li className='fs-6 fw-400 py-2'><IoMdCheckboxOutline size={25} style={{ color:"#F55139" }}/> Lorem ipsum dolor sit amet, consectetur</li>
-                                        <li className='fs-6 fw-400 py-2'><IoMdCheckboxOutline size={25} style={{ color:"#F55139" }}/> Lorem ipsum dolor sit amet, consectetur</li>
-                                        <li className='fs-6 fw-400 py-2'><IoMdCheckboxOutline size={25} style={{ color:"#F55139" }}/> Lorem ipsum dolor sit amet, consectetur</li>
-                                    </ul>
-                                </div>
-                                <button className='btn-Custom p-2' style={{ width: "100%" }}>Berlangganan</button>
-                            </Card.Body>
-                        </div>
-                    </Col>
-
-                </Row>
+                <CardSubscribe />
             </div>
             {/* End Subscribtion */} 
 
             {/* Banner */}
-            <div className='Banner-Container mt-Custom10 d-flex justify-content-center'>
+            <div className='Banner-Container mt-5 d-flex justify-content-center'>
                 <div className='Banner-Content p-5 d-flex'>
                     <div className='Banner-Content-Text align-middle'>
                         <p className='fs-3 fw-bold'>Log in to enjoy more benefits.</p>
