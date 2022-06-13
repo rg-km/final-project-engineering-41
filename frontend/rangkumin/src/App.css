@@ -63,17 +63,37 @@ body {
 .text2-signin {
   font-size: 16px;
   position: absolute;
-  top: 28%;
+  top: 29%;
   left: 64.5%;
 }
 
 .form-login {
   position: absolute;
   top: 35%;
-  left: 65%;
+  left: 60%;
+}
+
+.sign-up-button {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.sign-up-button:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
 }
 
 .button-login {
+  background-color: #FF725E;
+}
+
+.checkbox-box{
+  color: black;
+}
+
+.register-page {
   background-color: #FF725E;
 }
 
@@ -102,6 +122,10 @@ body {
   display: none;
 }
 
+.tablet-login-form {
+  display: none;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -113,6 +137,8 @@ body {
 
 
 /* Responsives Media */
+
+/* Mobile Form */
 
 @media (max-width: 576px) {
   .side {
@@ -152,8 +178,8 @@ body {
   .text2-signin {
     font-size: 15px;
     position: absolute;
-    top: 125%;
-    left: 17%;
+    top: 127%;
+    left: 15%;
   }
   
   .form-login {
@@ -172,5 +198,64 @@ body {
     top: 145%;
     left: 15%;
   }
+
+  /* Tablet Form */
+
+  @media (max-width: 768px) {
+    .mobile-login-form {
+      display: none;
+    }
+
+    .form-login {
+      display:none;
+    }
+
+    .side {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
   
+    .model3d {
+      max-width: 50%;
+      position: absolute;
+      top: 70px;
+      left: 50px;
+    }
+  
+    .text-ellipse {
+      font-size: 10px;
+      position: absolute;
+      top: 15%;
+      left: 4%;
+    }
+  
+    .logo-login {
+      max-width: 37.5%;
+      position: absolute;
+      top: 50px;
+      left: 225px;
+    }
+  
+    .text-signin {
+      font-size: 35px;
+      position: absolute;
+      top: 105%;
+      left: 37%;
+    }
+    
+    .text2-signin {
+      font-size: 15px;
+      position: absolute;
+      top: 127%;
+      left: 15%;
+    }
+    
+    .form-login {
+      position: absolute;
+      top: 145%;
+      left: 35%;
+    }
+  
+  }
 }

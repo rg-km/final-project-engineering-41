@@ -4,7 +4,6 @@ import ellipse from '../assets/loginPage/ellipse.png';
 import model3d from '../assets/loginPage/object3d.png';
 import logo from '../assets/loginPage/logo.png';
 import { Form, Button, Container } from 'react-bootstrap';
-import { Center } from '@chakra-ui/react';
 
 export class LeftSideLogin extends Component {
     
@@ -22,25 +21,25 @@ export class LeftSideLogin extends Component {
         <Form className='form-login'>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter your email" />
+            <Form.Control style={{width: "150%"}} type="email" placeholder="Enter your email" />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="*******" />
+            <Form.Control style={{width: "150%"}} type="password" placeholder="*******" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Remember Me" />
+            <Form.Check className='checkbox-box' type="checkbox" label="Remember Me" />
           </Form.Group>
           <div className="d-grid gap-2">
-          <Button className='button-login' variant="danger" size='xl' type="submit">
+          <Button style={{width: "150%",backgroundColor: "#FF725E", border: "none", color: "black", fontWeight: "bold"}} size='xl' type="submit">
                      Login              
           </Button>
           </div>
           <Form.Text className="text-muted">
-          Don’t have any account? <a>Sign Up</a>
+          Don’t have any account? <a className='sign-up-button' href='#'>Sign Up</a>
             </Form.Text>
         </Form>
         {/* Mobile Form */}
@@ -52,7 +51,6 @@ export class LeftSideLogin extends Component {
               We'll never share your email with anyone else.
             </Form.Text>
           </Form.Group>
-
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="*******" />
@@ -61,12 +59,37 @@ export class LeftSideLogin extends Component {
             <Form.Check type="checkbox" label="Remember me" />
           </Form.Group>
           <div className="d-grid gap-2">
-          <Button className='button-login' variant="danger" size='xl' type="submit">
+          <Button style={{backgroundColor: "#FF725E", border: "none", color: "black", fontWeight: "bold"}} size='xl' type="submit">
                      Login              
           </Button>
           </div>
           <Form.Text className="text-muted">
-          Don’t have any account? <a>Sign Up</a>
+          Don’t have any account? <a className='sign-up-button' href='#'>Sign Up</a>
+            </Form.Text>
+        </Form>
+        {/* Tablet Form */}
+        <Form className='tablet-login-form'>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control style={{width: "150%"}} type="email" placeholder="Enter your email" />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control style={{width: "150%"}} type="password" placeholder="*******" />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check className='checkbox-box' type="checkbox" label="Remember Me" />
+          </Form.Group>
+          <div className="d-grid gap-2">
+          <Button style={{width: "150%",backgroundColor: "#FF725E", border: "none", color: "black", fontWeight: "bold"}} size='xl' type="submit">
+                     Login              
+          </Button>
+          </div>
+          <Form.Text className="text-muted">
+          Don’t have any account? <a className='sign-up-button' href='#'>Sign Up</a>
             </Form.Text>
         </Form>
         </div>
