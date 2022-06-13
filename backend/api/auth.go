@@ -1,69 +1,107 @@
-package repository
+package api
 
 import (
-	"database/sql"
-	"errors"
+	"encoding/json"
+	"net/http"
+	"time"
+
+	"github.com/golang-jwt/jwt/v4"
 )
 
-type UserRepository struct {
-	db *sql.DB
+type User struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
 }
 
-func NewUserRepository(db *sql.DB) *UserRepository {
-	return &UserRepository{db: db}
+type LoginSuccessResponse struct {
+	Username string `json:"username"`
+	Token    string `json:"token"`
 }
 
-func (u *UserRepository) FetchUserByID(id int64) (User, error) {
+type AuthErrorResponse struct {
+	Error string `json:"error"`
+}
+
+var jwtKey = []byte("key")
+
+type Claims struct {
+	Username string
+	Role     string
+	jwt.StandardClaims
+}
+
+func (api *API) login(w http.ResponseWriter, req *http.Request) {
+	api.AllowOrigin(w, req)
 	var user User
-	err := u.db.QueryRow("SELECT * FROM users WHERE id = ?", id).Scan(&user.ID, &user.Username, &user.Password, &user.Password, &user.Role, &user.Loggedin, &user.Token)
+	err := json.NewDecoder(req.Body).Decode(&user)
 	if err != nil {
-		return user, err
+		w.WriteHeader(http.StatusBadRequest)
+		return
 	}
-	return user, nil
+
+	res, err := api.usersRepo.Login(user.Username, user.Password)
+
+	w.Header().Set("Content-Type", "application/json")
+	encoder := json.NewEncoder(w)
+	if err != nil {
+		w.WriteHeader(http.StatusUnauthorized)
+		encoder.Encode(AuthErrorResponse{Error: err.Error()})
+		return
+	}
+
+	userRole, _ := api.usersRepo.FetchUserRole(*res)
+
+	expirationTime := time.Now().Add(60 * time.Minute)
+
+	claims := &Claims{
+		Username: *res,
+		Role:     *userRole,
+		StandardClaims: jwt.StandardClaims{
+			ExpiresAt: expirationTime.Unix(),
+		},
+	}
+
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+
+	tokenString, err := token.SignedString(jwtKey)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	http.SetCookie(w, &http.Cookie{
+		Name:    "token",
+		Value:   tokenString,
+		Expires: expirationTime,
+		Path:    "/",
+	})
+
+	json.NewEncoder(w).Encode(LoginSuccessResponse{Username: *res, Token: tokenString})
 }
 
-func (u *UserRepository) FetchUsers() ([]User, error) {
+func (api *API) logout(w http.ResponseWriter, req *http.Request) {
+	api.AllowOrigin(w, req)
 
-	rows, err := u.db.Query("SELECT * FROM users")
+	token, err := req.Cookie("token")
 	if err != nil {
-		return nil, err
-	}
-	defer rows.Close()
-
-	var users []User
-	for rows.Next() {
-		var user User
-		err := rows.Scan(&user.ID, &user.Username, &user.Password, &user.Role, &user.Loggedin)
-		if err != nil {
-			return nil, err
+		if err == http.ErrNoCookie {
+			w.WriteHeader(http.StatusUnauthorized)
+			return
 		}
-		users = append(users, user)
+		w.WriteHeader(http.StatusBadRequest)
+		return
 	}
-	return users, nil
-}
+	if token.Value == "" {
+		w.WriteHeader(http.StatusUnauthorized)
+		return
+	}
 
-func (u *UserRepository) Login(username string, password string) (*string, error) {
-	var user User
-	err := u.db.QueryRow("SELECT username FROM users WHERE username = ? AND password = ?", username, password).Scan(&user.Username)
-	if err != nil {
-		return nil, errors.New("Login Failed")
+	c := http.Cookie{
+		Name:   "token",
+		MaxAge: -1,
 	}
-	return &user.Username, nil
-}
+	http.SetCookie(w, &c)
 
-func (u *UserRepository) InsertUser(username string, password string, role string, loggedin bool) error {
-	_, err := u.db.Exec("INSERT INTO users (username, password, role) VALUES (?, ?, ?, ?)", username, password, loggedin, role)
-	if err != nil {
-		return err
-	}
-	return nil
-}
-
-func (u *UserRepository) FetchUserRole(username string) (*string, error) {
-	var user User
-	err := u.db.QueryRow("SELECT role FROM users WHERE username = ?", username).Scan(&user.Role)
-	if err != nil {
-		return nil, err
-	}
-	return &user.Role, nil
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("logged out"))
 }

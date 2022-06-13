@@ -1,6 +1,12 @@
 package main
 
-import "database/sql"
+import (
+	"database/sql"
+
+	_ "github.com/mattn/go-sqlite3"
+	"github.com/rg-km/final-project-engineering-41.git/backend/api"
+	"github.com/rg-km/final-project-engineering-41.git/backend/repository"
+)
 
 func main() {
 	db, err := sql.Open("sqlite3", "./backend/db/migration/rangkumin.db")
@@ -9,11 +15,11 @@ func main() {
 	}
 
 	usersRepo := repository.NewUserRepository(db)
-	productsRepo := repository.NewProductRepository(db)
+	//materisRepo := repository.NewMateriRepository(db)
+	//kategoriKelasRepo := repository.NewKategoriKelasRepository(db)
 
 	//transactionRepo := repository.NewTransactionRepository(db, *productsRepo, *cartItemRepo)
 
-	mainAPI := api.NewAPI(*usersRepo, *materisRepo)
+	mainAPI := api.NewApi(*usersRepo)
 	mainAPI.Start()
-
 }
