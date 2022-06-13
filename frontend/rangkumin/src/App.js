@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import Homepage from './components/Homepage';
+import Course from './components/course.js';
 
 function App() {
   return (
-    <Homepage />
+    <Course/>
   );
 }
 
