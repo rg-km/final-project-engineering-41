@@ -1,11 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import { RightSideRegister } from './components/RightSideRegister';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
+    
     <div>
-      a
-    </div>
+      <RightSideRegister />
+      </div>
+  
   );
 }
 
