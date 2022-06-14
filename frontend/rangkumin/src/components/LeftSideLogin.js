@@ -19,7 +19,7 @@ export class LeftSideLogin extends Component {
         <h4 fontSize="4xl" className='text2-signin'><center>Welcome Back Please Enter Your Detail.</center></h4>
         {/* Dekstop Form */}
         <Form className='form-login'>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control style={{width: "150%"}} type="email" placeholder="Enter your email" />
             <Form.Text className="text-muted">
@@ -31,7 +31,7 @@ export class LeftSideLogin extends Component {
             <Form.Control style={{width: "150%"}} type="password" placeholder="*******" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check className='checkbox-box' type="checkbox" label="Remember Me" />
+            <Form.Check type="checkbox" label="Remember Me" />
           </Form.Group>
           <div className="d-grid gap-2">
           <Button style={{width: "150%",backgroundColor: "#FF725E", border: "none", color: "black", fontWeight: "bold"}} size='xl' type="submit">
@@ -51,6 +51,7 @@ export class LeftSideLogin extends Component {
               We'll never share your email with anyone else.
             </Form.Text>
           </Form.Group>
+
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="*******" />
@@ -60,31 +61,6 @@ export class LeftSideLogin extends Component {
           </Form.Group>
           <div className="d-grid gap-2">
           <Button style={{backgroundColor: "#FF725E", border: "none", color: "black", fontWeight: "bold"}} size='xl' type="submit">
-                     Login              
-          </Button>
-          </div>
-          <Form.Text className="text-muted">
-          Don’t have any account? <a className='sign-up-button' href='#'>Sign Up</a>
-            </Form.Text>
-        </Form>
-        {/* Tablet Form */}
-        <Form className='tablet-login-form'>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control style={{width: "150%"}} type="email" placeholder="Enter your email" />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control style={{width: "150%"}} type="password" placeholder="*******" />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check className='checkbox-box' type="checkbox" label="Remember Me" />
-          </Form.Group>
-          <div className="d-grid gap-2">
-          <Button style={{width: "150%",backgroundColor: "#FF725E", border: "none", color: "black", fontWeight: "bold"}} size='xl' type="submit">
                      Login              
           </Button>
           </div>
