@@ -68,10 +68,10 @@ body {
   color: gray;
 }
 
-.form-login {
+.form-register {
   position: absolute;
-  top: 35%;
-  left: 60%;
+  top: 200px;
+  left: 10%;
 }
 
 .sign-up-button {
