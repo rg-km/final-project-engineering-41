@@ -25,6 +25,13 @@ func Migrate() (*sql.DB, error) {
 		nama_materi varchar(255) not null,
 		nama_kategori varchar(255) not null,
 		tingkat varchar(255) not null
+	);
+	CREATE TABLE IF NOT EXISTS users (
+		id integer not null primary key AUTOINCREMENT,
+		username varchar(255) not null,
+		password varchar(255) not null,
+		role varchar(255) not null,
+		loggedin boolean not null
 	);`
 	_, err = db.Exec(sqlStmt)
 	if err != nil {
@@ -36,7 +43,13 @@ func Migrate() (*sql.DB, error) {
     ('Bilangan Bulat', 'Matematika', 'SD'),
     ('Hukum Newton', 'Fisika', 'SMP'),
     ('Tenses', 'Bahasa Inggris', 'SMP'),
-    ('Indonesia pada Orde Lama', 'Sejarah', 'SMA')`)
+    ('Indonesia pada Orde Lama', 'Sejarah', 'SMA')
+	
+	INSERT INTO users(username, password, role, loggedin) VALUES
+    ('aditira', '1234', 'admin', false),
+    ('dina', '4321', 'employee', false),
+    ('dito', '2552', 'employee', false);
+	`)
 
 	if err != nil {
 		fmt.Println(err)
