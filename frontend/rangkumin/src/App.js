@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Footer from './components/footer'
+import Hero from './components/hero'
+import Nav from './components/nav'
+import Modal from './components/props/modal'
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [state, setState] = React.useState(false)
+    const [logo, setLogo] = React.useState("BNI")
+    console.log(logo)
+    return (
+        <div>
+            {state ? <Modal logo={logo} setState={setState} /> : ""}
+            <Nav />
+            <Hero setLogo={setLogo} setState={setState} />
+            <Footer />
+        </div>
+    )
 }
 
-export default App;
+export default App
