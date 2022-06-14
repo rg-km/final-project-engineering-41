@@ -1,14 +1,15 @@
 import './App.css';
-import { LeftSideLogin } from './components/LeftSideLogin';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Settings from './components/Settings';
 
 function App() {
   return (
-    
-    <div>
-      <LeftSideLogin />
-      </div>
-  
+    <>
+      <Header />
+      <Settings />
+      <Footer />
+    </>
   );
 }
 
