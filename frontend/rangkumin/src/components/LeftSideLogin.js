@@ -14,9 +14,9 @@ export class LeftSideLogin extends Component {
         <img className='ellipse' src={ellipse} alt="ellipse" />
         <img className='model3d' src={model3d} alt="3D Model" />
         <img className='logo-login' src={logo} alt="logo-login" />
-        <h1 className='text-ellipse'>Pellentesque a tempus <br></br>massa. Nullam </h1>
+        <h1 style={{color: "white", fontWeight: "bold"}} className='text-ellipse'>Pellentesque a tempus <br></br>massa. Nullam </h1>
         <h1 fontSize="4xl" className='text-signin'>Sign In</h1>
-        <h4 fontSize="4xl" className='text2-signin'><center>Welcome Back Please Enter Your Detail.</center></h4>
+        <h4 style={{color: "gray"}} fontSize="4xl" className='text2-signin'><center>Welcome Back Please Enter Your Detail.</center></h4>
         {/* Dekstop Form */}
         <Form className='form-login'>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -33,8 +33,8 @@ export class LeftSideLogin extends Component {
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Remember Me" />
           </Form.Group>
-          <div className="d-grid gap-2">
-          <Button style={{width: "150%",backgroundColor: "#FF725E", border: "none", color: "black", fontWeight: "bold"}} size='xl' type="submit">
+          <div className="d-grid gap-2 mb-2">
+          <Button style={{width: "150%",backgroundColor: "#FF725E", border: "none", color: "white", fontWeight: "bold"}} size='xl' type="submit">
                      Login              
           </Button>
           </div>
@@ -60,7 +60,7 @@ export class LeftSideLogin extends Component {
             <Form.Check type="checkbox" label="Remember me" />
           </Form.Group>
           <div className="d-grid gap-2">
-          <Button style={{backgroundColor: "#FF725E", border: "none", color: "black", fontWeight: "bold"}} size='xl' type="submit">
+          <Button style={{backgroundColor: "#FF725E",color: "white", border: "none", fontWeight: "bold"}} size='xl' type="submit">
                      Login              
           </Button>
           </div>
