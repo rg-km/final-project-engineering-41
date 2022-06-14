@@ -5,8 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    // <ForgotPass />
-    <ResetPass />
+    <ForgotPass />
+    // <ResetPass />
   );
 }
 
