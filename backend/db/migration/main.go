@@ -14,6 +14,7 @@ type User struct {
 	Password string `db:"password"`
 	Fullname string `db:"fullname"`
 	TipeUser string `db:"tipe_user"`
+	Loggedin bool   `db:"loggedin"`
 }
 
 type TipeUser struct {
@@ -45,7 +46,7 @@ type Materi struct {
 
 // Migrate digunakan untuk melakukan migrasi database dengan data yang dibutuhkan
 func Migrate() (*sql.DB, error) {
-	db, err := sql.Open("sqlite3", "./rangkumin.db")
+	db, err := sql.Open("sqlite3", "./backend/db/rangkumin.db")
 	if err != nil {
 		panic(err)
 	}
@@ -55,7 +56,8 @@ func Migrate() (*sql.DB, error) {
 		username VARCHAR(255),
 		password VARCHAR(255),
 		fullname VARCHAR(255),
-		tipe_user VARCHAR(255)	
+		tipe_user VARCHAR(255),
+		loggedin  boolean not null	
 	);`
 
 	_, err = db.Exec(sqlStmt)
@@ -63,13 +65,13 @@ func Migrate() (*sql.DB, error) {
 		return nil, err
 	}
 
-	_, err = db.Exec(`INSERT INTO users (username, password, fullname, tipe_user)
+	_, err = db.Exec(`INSERT INTO users (username, password, fullname, tipe_user, loggedin)
 	VALUES
-	("deaash","0000","Dea Ashari", "AM"),
-	("ridwanamd","1111","Ahmad Ridwan", "FM"),
-	("gilangg","2222","Gilang Ramadhan", "BM"),
-	("daffasyam","3333","Asyam Daffa", "PM"),
-	("viaalis","4444","Via Alisti", "FM");`)
+	("deaash","0000","Dea Ashari", "AM", "true"),
+	("ridwanamd","1111","Ahmad Ridwan", "FM", "true"),
+	("gilangg","2222","Gilang Ramadhan", "BM", "true"),
+	("daffasyam","3333","Asyam Daffa", "PM", "true"),
+	("viaalis","4444","Via Alisti", "FM", "true");`)
 	if err != nil {
 		panic(err)
 	}
@@ -192,7 +194,7 @@ func main() {
 
 	for rows.Next() {
 		var user User
-		err = rows.Scan(&user.ID, &user.Username, &user.Password, &user.Fullname, &user.TipeUser)
+		err = rows.Scan(&user.ID, &user.Username, &user.Password, &user.Fullname, &user.TipeUser, &user.Loggedin)
 		if err != nil {
 			panic(err)
 		}
