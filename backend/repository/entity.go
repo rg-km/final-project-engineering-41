@@ -1,14 +1,5 @@
 package repository
 
-type User struct {
-	ID       int    `db:"id"`
-	Username string `db:"username"`
-	Password string `db:"password"`
-	Fullname string `db:"fullname"`
-	TipeUser string `db:"tipe_user"`
-	Loggedin bool   `db:"loggedin"`
-}
-
 type TipeUser struct {
 	ID             int    `db:"id"`
 	TipeUser       string `db:"tipe_user"`
