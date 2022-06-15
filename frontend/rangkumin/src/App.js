@@ -1,13 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import CourseDetail from './components/courseDetail';
+import logo from "./logo.svg";
+import "./App.css";
+import AboutUs from "./components/AboutUs";
 
 function App() {
-  return (
-    <>
-      <CourseDetail />
-    </>
-  );
+	return (
+		<>
+			<AboutUs />
+		</>
+	);
 }
 
 export default App;
