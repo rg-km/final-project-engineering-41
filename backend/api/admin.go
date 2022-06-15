@@ -6,13 +6,6 @@ type AdminErrorResponse struct {
 	Error string `json:"error"`
 }
 
-type ProductSales struct {
-	Name     string `json:"name"`
-	Price    int    `json:"price"`
-	Category string `json:"category"`
-	Quantity int    `json:"quantity"`
-}
-
 // type AdminResponse struct {
 // 	Sales []repository.Sales `json:"sales"`
 // }

@@ -21,12 +21,7 @@ func NewApi(usersRepo repository.UserRepository) API {
 	}
 
 	mux.Handle("/api/user/login", api.POST(http.HandlerFunc(api.login)))
-	mux.Handle("/api/user/logout", api.POST(http.HandlerFunc(api.logout)))
-	//mux.Handle("/api/kategori-kelas", api.POST(api.AuthMiddleWare(http.HandlerFunc(api.pay))))
-
-	//API with AuthMiddleware:
-	//mux.Handle("/api/materis", api.GET(api.AuthMiddleWare(http.HandlerFunc(api.materiList))))
-
+	//mux.Handle("/api/user/logout", api.POST(http.HandlerFunc(api.logout)))
 	return api
 
 }
@@ -36,6 +31,6 @@ func (api *API) Handler() *http.ServeMux {
 }
 
 func (api *API) Start() {
-	fmt.Println("starting web server at http://localhost:8080/")
-	http.ListenAndServe(":8080", api.Handler())
+	fmt.Println("starting web server at http://localhost:3030/")
+	http.ListenAndServe(":3030", api.Handler())
 }

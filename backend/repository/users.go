@@ -15,55 +15,102 @@ func NewUserRepository(db *sql.DB) *UserRepository {
 
 func (u *UserRepository) FetchUserByID(id int64) (User, error) {
 	var user User
-	err := u.db.QueryRow("SELECT * FROM users WHERE id = ?", id).Scan(&user.ID, &user.Username, &user.Password, &user.Password, &user.Role, &user.Loggedin, &user.Token)
+	sqlStatement := `SELECT id, username, password, fullname, tipe_user, loggedin FROM users
+	WHERE id = ?`
+
+	row := u.db.QueryRow(sqlStatement)
+	err := row.Scan(
+		&user.ID,
+		&user.Username,
+		&user.Password,
+		&user.Fullname,
+		&user.TipeUser,
+		&user.Loggedin,
+	)
+
 	if err != nil {
-		return user, err
+		return User{}, err
 	}
-	return user, nil
+
+	return user, nil // TODO: replace this
 }
 
 func (u *UserRepository) FetchUsers() ([]User, error) {
+	var sqlStatement string
+	var users []User
 
-	rows, err := u.db.Query("SELECT * FROM users")
+	//TODO: add sql statement here
+	//HINT: join table cart_items and products
+	sqlStatement = `SELECT id, username, password, fullname, tipe_user, loggedin FROM users`
+
+	rows, err := u.db.Query(sqlStatement)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
-
-	var users []User
 	for rows.Next() {
 		var user User
-		err := rows.Scan(&user.ID, &user.Username, &user.Password, &user.Role, &user.Loggedin)
+
+		err := rows.Scan(
+			&user.ID,
+			&user.Username,
+			&user.Password,
+			&user.TipeUser,
+			&user.Loggedin,
+		)
 		if err != nil {
 			return nil, err
 		}
 		users = append(users, user)
 	}
-	return users, nil
+
+	return users, nil // TODO: replace this
 }
 
 func (u *UserRepository) Login(username string, password string) (*string, error) {
-	var user User
-	err := u.db.QueryRow("SELECT username FROM users WHERE username = ? AND password = ?", username, password).Scan(&user.Username)
-	if err != nil {
-		return nil, errors.New("Login Failed")
-	}
-	return &user.Username, nil
-}
 
-func (u *UserRepository) InsertUser(username string, password string, role string, loggedin bool) error {
-	_, err := u.db.Exec("INSERT INTO users (username, password, role) VALUES (?, ?, ?, ?)", username, password, loggedin, role)
-	if err != nil {
-		return err
-	}
-	return nil
-}
+	users, err := u.FetchUsers()
 
-func (u *UserRepository) FetchUserRole(username string) (*string, error) {
-	var user User
-	err := u.db.QueryRow("SELECT role FROM users WHERE username = ?", username).Scan(&user.Role)
 	if err != nil {
 		return nil, err
 	}
-	return &user.Role, nil
+
+	for _, user := range users {
+		if user.Username == username {
+			if user.Password == password {
+				return &user.Username, nil
+			} else {
+				return nil, errors.New("Login Failed")
+			}
+		}
+	}
+	return nil, errors.New("Login Failed") // TODO: replace this
+}
+
+func (u *UserRepository) InsertUser(username string, password string, fullname string, tipeuser string, loggedin bool) error {
+	sqlStatement := `INSERT INTO users (username, password,fullname, tipe_user, loggedin) 
+	VALUES (?, ?, ?, ?,?)`
+
+	_, err := u.db.Exec(sqlStatement, username, password, fullname, tipeuser, loggedin)
+	if err != nil {
+		return err
+	}
+	return nil // TODO: replace this
+}
+
+func (u *UserRepository) FetchUserRole(username string) (*string, error) {
+	sqlStatement := `SELECT tipe_user FROM users WHERE username = ?`
+
+	row := u.db.QueryRow(sqlStatement, username)
+	var role string
+
+	err := row.Scan(
+		&role,
+	)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &role, nil // TODO: replace this
 }
