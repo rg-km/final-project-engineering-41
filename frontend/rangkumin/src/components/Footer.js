@@ -13,7 +13,7 @@ export default function Footer() {
     <>
         <Container fluid style={{ backgroundColor : "#13222C", }}>
             <Container >
-                <div className="text-center mt-5 py-5">
+                <div className="text-center py-5">
                   <img src={LogoWhite} alt="Logo image" width="25%" height="auto" className="d-inline-block align-top"></img>
                   <p className='footer-Text fw-400 mt-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
                   <Nav className='justify-content-center mt-2 fs-Custom'>

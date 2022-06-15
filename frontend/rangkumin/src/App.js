@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import UserSetting from './components/user/userSetting';
-import AdminSetting from './components/admin/adminSetting';
+import CourseDetail from './components/courseDetail';
 
 function App() {
   return (
-    // <UserSetting />
-    <AdminSetting />
+    <>
+      <CourseDetail />
+    </>
   );
 }
 
