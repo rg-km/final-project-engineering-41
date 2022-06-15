@@ -1,57 +1,56 @@
 // package api
 package api
 
-func materilist() {
+import (
+	"encoding/json"
+	"net/http"
+)
 
+type MateriListErrorResponse struct {
+	Error string `json:"error"`
 }
 
-// import (
-// 	"encoding/json"
-// 	"net/http"
-// )
+type Materi struct {
+	ID        int    `db:"id"`
+	IdMateri  string `db:"id_materi"`
+	IdSubject string `db:"id_subject"`
+	IdTingkat string `db:"id_movie"`
+	Tanggal   string `db:"tingkat"`
+	File      string `db:"file"`
+}
 
-// type MateriListErrorResponse struct {
-// 	Error string `json:"error"`
-// }
+type MateriListSuccessResponse struct {
+	materi2 []Materi `json:"materi"`
+}
 
-// type Materi struct {
-// 	NamaMateri   string `db:"nama_materi"`
-// 	NamaKategori string `db:"nama_kategori"`
-// 	Tingkat      string `db:"tingkat"`
-// 	File         string `db:"file"`
-// }
+func (api *API) materiList(w http.ResponseWriter, req *http.Request) {
+	api.AllowOrigin(w, req)
+	encoder := json.NewEncoder(w)
 
-// type MateriListSuccessResponse struct {
-// 	Materis []Materi `json:"materis"`
-// }
+	response := MateriListSuccessResponse{}
+	response.materi2 = make([]Materi, 0)
 
-// func (api *API) materiList(w http.ResponseWriter, req *http.Request) {
-// 	api.AllowOrigin(w, req)
-// 	encoder := json.NewEncoder(w)
+	materi2, err := api.materiRepo.FetchMateri()
+	defer func() {
+		if err != nil {
+			w.WriteHeader(http.StatusBadRequest)
+			encoder.Encode(DashboardErrorResponse{Error: err.Error()})
+			return
+		}
+	}()
+	if err != nil {
+		return
+	}
 
-// 	response := MateriListSuccessResponse{}
-// 	response.Materis = make([]Materi, 0)
+	for _, materi := range materi2 {
+		response.materi2 = append(response.materi2, Materi{
+			IdMateri:  materi.IdMateri,
+			IdSubject: materi.IdSubject,
+			IdTingkat: materi.IdTingkat,
+			Tanggal:   materi.Tanggal,
+			File:      materi.File,
+		})
+	}
 
-// 	materis, err := api.materisRepo.FetchMateris()
-// 	defer func() {
-// 		if err != nil {
-// 			w.WriteHeader(http.StatusBadRequest)
-// 			encoder.Encode(DashboardErrorResponse{Error: err.Error()})
-// 			return
-// 		}
-// 	}()
-// 	if err != nil {
-// 		return
-// 	}
-
-// 	for _, materi := range materis {
-// 		response.Materis = append(response.Materis, Materi{
-// 			NamaMateri:   materi.NamaMateri,
-// 			NamaKategori: materi.NamaKategori,
-// 			Tingkat:      materi.Tingkat,
-// 			File:         materi.File,
-// 		})
-// 	}
-
-// 	encoder.Encode(response)
-// }
+	encoder.Encode(response)
+}

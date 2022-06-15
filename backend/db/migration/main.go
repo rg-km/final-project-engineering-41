@@ -67,11 +67,11 @@ func Migrate() (*sql.DB, error) {
 
 	_, err = db.Exec(`INSERT INTO users (username, password, fullname, tipe_user, loggedin)
 	VALUES
-	("deaash","0000","Dea Ashari", "AM", "true"),
-	("ridwanamd","1111","Ahmad Ridwan", "FM", "true"),
-	("gilangg","2222","Gilang Ramadhan", "BM", "true"),
-	("daffasyam","3333","Asyam Daffa", "PM", "true"),
-	("viaalis","4444","Via Alisti", "FM", "true");`)
+	("deaash","0000","Dea Ashari", "AM", "false"),
+	("ridwanamd","1111","Ahmad Ridwan", "FM", "false"),
+	("gilangg","2222","Gilang Ramadhan", "BM", "false"),
+	("daffasyam","3333","Asyam Daffa", "PM", "false"),
+	("viaalis","4444","Via Alisti", "FM", "false");`)
 	if err != nil {
 		panic(err)
 	}

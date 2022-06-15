@@ -85,16 +85,31 @@ func (api *API) login(w http.ResponseWriter, req *http.Request) {
 	json.NewEncoder(w).Encode(LoginSuccessResponse{Username: *res, Token: tokenString})
 }
 
-// func (api *API) logout(w http.ResponseWriter, req *http.Request) {
-// 	api.AllowOrigin(w, req)
-// 	username := req.URL.Query().Get("username")
-// 	err := api.usersRepo.logout(username)
-// 	if err != nil {
-// 		w.WriteHeader(http.StatusUnauthorized)
-// 		encoder := json.NewEncoder(w)
-// 		encoder.Encode(AuthErrorResponse{Error: err.Error()})
-// 		return
-// 	}
+func (api *API) logout(w http.ResponseWriter, req *http.Request) {
+	api.AllowOrigin(w, req)
 
-// 	w.WriteHeader(http.StatusOK) // TODO: replace this
-// }
+	token, err := req.Cookie("token")
+	if err != nil {
+		if err == http.ErrNoCookie {
+			// return unauthorized ketika token kosong
+			w.WriteHeader(http.StatusUnauthorized)
+			return
+		}
+		// return bad request ketika field token tidak ada
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+	if token.Value == "" {
+		w.WriteHeader(http.StatusUnauthorized)
+		return
+	}
+
+	c := http.Cookie{
+		Name:   "token",
+		MaxAge: -1,
+	}
+	http.SetCookie(w, &c)
+
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("logged out"))
+}
