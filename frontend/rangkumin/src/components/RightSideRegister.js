@@ -8,9 +8,8 @@ import mail from '../assets/Icons/mail.svg';
 import lock from '../assets/Icons/lock.svg';
 import { Form, Button, InputGroup } from 'react-bootstrap';
 
-export class RightSideRegister extends Component {
+export function RightSideRegister() {
     
-    render() {
         return (
       <body>
         <div className='side'>
@@ -95,5 +94,4 @@ export class RightSideRegister extends Component {
         </Form> */}
       </body>
         )
-    }
 }
