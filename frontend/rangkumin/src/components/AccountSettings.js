@@ -2,11 +2,13 @@ import React from "react";
 import { Container, Form ,Button } from "react-bootstrap";
 import profilePicture from "../assets/settings/profilePicture.png";
 import vector3d from "../assets/settings/3dassets.png";
+import UserSetting from "./user/userSetting";
 import "../styles/settings.css"
 
-export default function Settings () {
+export default function AccountSettings () {
     return (
         <Container>
+        <UserSetting />
         <h2 style={{fontWeight: "bold"}} className="mt-4" >Personal Info</h2>
         <h5 style={{color: "gray"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h5>
         <h4 className="mt-5">Your Profile Picture</h4>
