@@ -20,8 +20,8 @@ export default function PasswordSettings () {
             <Form.Label>Password</Form.Label>
             <Form.Control  style={{width: "90%"}} type="password" placeholder="************" />
         </Form.Group>
-        <Button style={{position: "absolute", top: "71.5%", left: "47.5%", backgroundColor: "white", borderColor: "#F55139", borderRadius: "5px", color: "#F55139"}}>Change Email</Button>
-        <Button style={{position: "absolute", top: "87.5%", left: "47.5%", backgroundColor: "white", borderColor: "#F55139", borderRadius: "5px", color: "#F55139"}}>Change Password</Button>
+        <Button style={{position: "absolute", top: "77.5%", left: "47.5%", backgroundColor: "white", borderColor: "#F55139", borderRadius: "5px", color: "#F55139"}}>Change Email</Button>
+        <Button style={{position: "absolute", top: "95%", left: "47.5%", backgroundColor: "white", borderColor: "#F55139", borderRadius: "5px", color: "#F55139"}}>Change Password</Button>
         </Form>
         <hr></hr>
         <Form>
