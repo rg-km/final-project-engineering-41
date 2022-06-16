@@ -58,18 +58,18 @@ export default function userSetting() {
 						<Card
 							style={{
 								width: "50%",
-								background: "#FFFFFF",
+								background: "#0fa958",
 								boxShadow: "0px 2px 10px 2px rgba(0, 0, 0, 0.23)",
 								borderRadius: "20px",
 								border: "none",
 							}}>
 							<Card.Body>
 								<div className="text-center p-2">
-									<Icon icon="ic:outline-payment" color="#0fa958" height="50" />
+									<Icon icon="ic:outline-payment" color="white" height="50" />
 								</div>
 								<Card.Title
 									className="text-center fw-bold m-1"
-									style={{ color: "#0fa958" }}>
+									style={{ color: "white" }}>
 									Subscription
 								</Card.Title>
 							</Card.Body>
