@@ -10,8 +10,8 @@ function App() {
   return (
     <>
       <Header />
-      {/* <AccountSettings />
-      <PasswordSettings /> */}
+      {/* <AccountSettings /> */}
+      {/* <PasswordSettings /> */}
       <SubscriptionSettings />
       <Footer />
     </>
