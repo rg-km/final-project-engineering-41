@@ -1,17 +1,28 @@
 package repository
 
-type User struct {
-	ID       int64  `db:"id"`
-	Username string `db:"username"`
-	Password string `db:"password"`
-	Role     string `db:"role"`
-	Loggedin bool   `db:"loggedin"`
-	Token    string `db:"token"`
+type TipeUser struct {
+	ID             int    `db:"id"`
+	TipeUser       string `db:"tipe_user"`
+	KeteranganUser string `db:"keterangan_user"`
 }
-type Product struct {
-	ID          int64  `db:"id"`
-	Category    string `db:"category"`
-	ProductName string `db:"product_name"`
-	Price       int    `db:"price"`
-	Quantity    int    `db:"quantity"`
+
+type Subject struct {
+	ID          int    `db:"id"`
+	IdSubject   string `db:"id_subject"`
+	NamaSubject string `db:"nama_subject"`
+}
+
+type Tingkat struct {
+	ID          int    `db:"id"`
+	IdTingkat   string `db:"id_movie"`
+	NamaTingkat string `db:"nama_tingkat"`
+}
+
+type Materi struct {
+	ID        int    `db:"id"`
+	IdMateri  string `db:"id_materi"`
+	IdSubject string `db:"id_subject"`
+	IdTingkat string `db:"id_movie"`
+	Tanggal   string `db:"tingkat"`
+	File      string `db:"file"`
 }

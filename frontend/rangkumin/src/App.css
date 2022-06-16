@@ -18,6 +18,31 @@ body {
   left: 0;
 }
 
+<<<<<<< HEAD
+.ellipse {
+  max-width: 45%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.model3d {
+  max-width: 45%;
+  position: absolute;
+  top: 300px;
+  left: 150px;
+}
+
+.logo-login {
+  max-width: 20%;
+  position: absolute;
+  top: 60px;
+  left: 1075px;
+}
+
+.form-login {
+  max-width: 20%;
+=======
 .ellipseReg {
   max-width: 52%;
   position: absolute;
@@ -41,6 +66,7 @@ body {
 
 .form-register {
   /* max-width: 50%; */
+>>>>>>> ff66abb066db954b3dbb984cf1f571852de381c6
   position: absolute;
   top: 300px;
   left: 1075px;
@@ -53,6 +79,26 @@ body {
   left: 4%;
 }
 
+<<<<<<< HEAD
+.text-signin {
+  font-size: 45px;
+  position: absolute;
+  top: 20%;
+  left: 70%;
+}
+
+.text2-signin {
+  font-size: 16px;
+  position: absolute;
+  top: 28%;
+  left: 64.5%;
+}
+
+.form-login {
+  position: absolute;
+  top: 35%;
+  left: 60%;
+=======
 .text-signup {
   font-size: 45px;
   position: absolute;
@@ -72,6 +118,7 @@ body {
   position: absolute;
   top: 200px;
   left: 10%;
+>>>>>>> ff66abb066db954b3dbb984cf1f571852de381c6
 }
 
 .sign-up-button {

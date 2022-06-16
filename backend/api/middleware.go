@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/dgrijalva/jwt-go"
+	"github.com/golang-jwt/jwt/v4"
 )
 
 func (api *API) AllowOrigin(w http.ResponseWriter, req *http.Request) {
@@ -62,7 +62,7 @@ func (api *API) AuthMiddleWare(next http.Handler) http.Handler {
 		}
 
 		ctx := context.WithValue(r.Context(), "username", claims.Username)
-		ctx = context.WithValue(ctx, "role", claims.Role)
+		//ctx = context.WithValue(ctx, "tipe_user", claims.TipeUser)
 		ctx = context.WithValue(ctx, "props", claims)
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})
@@ -72,8 +72,8 @@ func (api *API) AdminMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		api.AllowOrigin(w, r)
 		encoder := json.NewEncoder(w)
-		role := r.Context().Value("role")
-		if role != "admin" {
+		role := r.Context().Value("file_user")
+		if role != "AM" {
 			w.WriteHeader(http.StatusForbidden)
 			encoder.Encode(AuthErrorResponse{Error: "forbidden access"})
 			return

@@ -26,7 +26,7 @@ var jwtKey = []byte("key")
 
 type Claims struct {
 	Username string
-	Role     string
+	//Role     string
 	jwt.StandardClaims
 }
 
@@ -49,26 +49,32 @@ func (api *API) login(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	userRole, _ := api.usersRepo.FetchUserRole(*res)
+	//userRole, _ := api.usersRepo.FetchUserRole(*res)
 
+	// Deklarasi expiry time untuk token jwt
 	expirationTime := time.Now().Add(60 * time.Minute)
 
+	// Buat claim menggunakan variable yang sudah didefinisikan diatas
 	claims := &Claims{
 		Username: *res,
-		Role:     *userRole,
+		//TipeUser:     *userRole,
 		StandardClaims: jwt.StandardClaims{
+			// expiry time menggunakan time millisecond
 			ExpiresAt: expirationTime.Unix(),
 		},
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 
+	// Buat jwt string dari token yang sudah dibuat menggunakan JWT key yang telah dideklarasikan
 	tokenString, err := token.SignedString(jwtKey)
 	if err != nil {
+		// return internal error ketika ada kesalahan ketika pembuatan JWT string
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
+	// Set token string kedalam cookie response
 	http.SetCookie(w, &http.Cookie{
 		Name:    "token",
 		Value:   tokenString,
@@ -85,9 +91,11 @@ func (api *API) logout(w http.ResponseWriter, req *http.Request) {
 	token, err := req.Cookie("token")
 	if err != nil {
 		if err == http.ErrNoCookie {
+			// return unauthorized ketika token kosong
 			w.WriteHeader(http.StatusUnauthorized)
 			return
 		}
+		// return bad request ketika field token tidak ada
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}

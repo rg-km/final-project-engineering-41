@@ -9,17 +9,17 @@ import (
 )
 
 func main() {
-	db, err := sql.Open("sqlite3", "./backend/db/migration/rangkumin.db")
+	db, err := sql.Open("sqlite3", "./backend/db/rangkumin.db")
 	if err != nil {
 		panic(err)
 	}
 
 	usersRepo := repository.NewUserRepository(db)
-	//materisRepo := repository.NewMateriRepository(db)
+	materiRepo := repository.NewMateriRepository(db)
 	//kategoriKelasRepo := repository.NewKategoriKelasRepository(db)
 
 	//transactionRepo := repository.NewTransactionRepository(db, *productsRepo, *cartItemRepo)
 
-	mainAPI := api.NewApi(*usersRepo)
+	mainAPI := api.NewApi(*usersRepo, *materiRepo)
 	mainAPI.Start()
 }
