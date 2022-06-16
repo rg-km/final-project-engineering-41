@@ -1,4 +1,4 @@
-import '../App.css';
+import '../styles/register.css';
 import React, {Component} from 'react';
 import ellipseReg from '../assets/registerPage/ellipseReg.png';
 import vectorReg from '../assets/registerPage/vectorReg.png';
