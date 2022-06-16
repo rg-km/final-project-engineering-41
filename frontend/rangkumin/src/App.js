@@ -4,13 +4,15 @@ import Footer from './components/Footer';
 import UserSetting from './components/user/userSetting';
 import AccountSettings from './components/AccountSettings';
 import PasswordSettings from './components/PasswordSetting';
+import SubscriptionSettings from './components/SubscriptionSetting';
 
 function App() {
   return (
     <>
       <Header />
-      {/* <AccountSettings /> */}
-      <PasswordSettings />
+      {/* <AccountSettings />
+      <PasswordSettings /> */}
+      <SubscriptionSettings />
       <Footer />
     </>
   );

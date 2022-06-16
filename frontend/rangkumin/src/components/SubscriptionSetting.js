@@ -1,28 +1,26 @@
 import React from "react";
-import { Container, Form ,Button, Row, Col} from "react-bootstrap";
+import { Container, Form ,Button, Row, Col, Card} from "react-bootstrap";
 import profilePicture from "../assets/settings/profilePicture.png";
 import vector3d from "../assets/settings/3dassets.png";
 import UserSetting from "./user/passwordSetting.js";
 import "../styles/settings.css"
 
-export default function PasswordSettings () {
+export default function SubscriptionSettings () {
     return (
         <Container>
         <UserSetting />
-        <h2 style={{fontWeight: "bold"}} className="mt-4" >Password Setting</h2>
+        <h2 style={{fontWeight: "bold"}} className="mt-4" >Personal Info</h2>
         <h5 style={{color: "gray"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h5>
-        <Form style={{marginTop: "50px"}}>
-        <Form.Group style={{width: "50%"}} className="mb-5" controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control style={{width: "90%",backgroundColor: "#FFA79A"}} type="email" placeholder="vialistiii30@gmail.com" />
-        </Form.Group>
-        <Form.Group style={{width: "50%"}} className="mb-5" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control  style={{width: "90%"}} type="password" placeholder="************" />
-        </Form.Group>
-        <Button style={{position: "absolute", top: "77.5%", left: "47.5%", backgroundColor: "white", borderColor: "#F55139", borderRadius: "5px", color: "#F55139"}}>Change Email</Button>
-        <Button style={{position: "absolute", top: "95%", left: "47.5%", backgroundColor: "white", borderColor: "#F55139", borderRadius: "5px", color: "#F55139"}}>Change Password</Button>
-        </Form>
+        <Card style={{borderColor: "#F55139", width: "45%"}} className="mt-4">
+        <Card.Body>
+            <Card.Title>Basic</Card.Title>
+            <Card.Title>Rp. 6.000 / month</Card.Title>
+            <Card.Text style={{color: "gray"}}>
+            23 days Remaining
+            </Card.Text>
+            <Button style={{backgroundColor: "white", borderColor: "#F55139", borderRadius: "5px", color: "#F55139"}} className= "mt-2 mb-2" variant="primary" type="submit">Cancel Subscription</Button>
+        </Card.Body>
+        </Card>
         <hr></hr>
         <Form>
         <Row>
