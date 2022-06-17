@@ -1,44 +1,57 @@
 package api
 
-//"github.com/ruang-guru/playground/backend/database/assigment/cashier-app/repository"
+import (
+	"encoding/json"
+	"net/http"
+	"time"
+
+	"github.com/rg-km/final-project-engineering-41.git/backend/repository"
+)
 
 type AdminErrorResponse struct {
 	Error string `json:"error"`
 }
 
-// type AdminResponse struct {
-// 	Sales []repository.Sales `json:"sales"`
-// }
+type ProductSales struct {
+	Name     string `json:"name"`
+	Price    int    `json:"price"`
+	Category string `json:"category"`
+	Quantity int    `json:"quantity"`
+}
 
-// func (api *API) getDashboard(w http.ResponseWriter, req *http.Request) {
-// 	api.AllowOrigin(w, req)
-// 	productName := req.URL.Query().Get("product_name")
+type AdminResponse struct {
+	Sales []repository.Sales `json:"sales"`
+}
 
-// 	startPeriod, _ := time.Parse("2006-01-02", req.URL.Query().Get("start_period"))
-// 	endPeriod, _ := time.Parse("2006-01-02", req.URL.Query().Get("end_period"))
+func (api *API) getDashboard(w http.ResponseWriter, req *http.Request) {
+	api.AllowOrigin(w, req)
+	productName := req.URL.Query().Get("product_name")
 
-// 	getSalesRequest := repository.GetSalesRequest{
-// 		ProductName: productName,
-// 		StartPeriod: &startPeriod,
-// 		EndPeriod:   &endPeriod,
-// 	}
+	startPeriod, _ := time.Parse("2006-01-02", req.URL.Query().Get("start_period"))
+	endPeriod, _ := time.Parse("2006-01-02", req.URL.Query().Get("end_period"))
 
-// 	if req.URL.Query().Get("start_period") == "" {
-// 		getSalesRequest.StartPeriod = nil
-// 	}
-// 	if req.URL.Query().Get("end_period") == "" {
-// 		getSalesRequest.EndPeriod = nil
-// 	}
+	getSalesRequest := repository.GetSalesRequest{
+		ProductName: productName,
+		StartPeriod: &startPeriod,
+		EndPeriod:   &endPeriod,
+	}
 
-// 	encoder := json.NewEncoder(w)
+	if req.URL.Query().Get("start_period") == "" {
+		getSalesRequest.StartPeriod = nil
+	}
+	if req.URL.Query().Get("end_period") == "" {
+		getSalesRequest.EndPeriod = nil
+	}
 
-// 	sales, err := api.salesRepo.FetchSales(getSalesRequest)
-// 	if err != nil {
-// 		w.WriteHeader(http.StatusBadRequest)
-// 		encoder.Encode(CartErrorResponse{Error: err.Error()})
-// 		return
-// 	}
+	encoder := json.NewEncoder(w)
 
-// 	encoder.Encode(AdminResponse{Sales: sales})
-// 	w.WriteHeader(http.StatusOK)
-// }
+	sales, err := api.salesRepo.FetchSales(getSalesRequest)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		encoder.Encode(CartErrorResponse{Error: err.Error()})
+		return
+	}
+
+	encoder.Encode(AdminResponse{Sales: sales})
+	w.WriteHeader(http.StatusOK)
+}

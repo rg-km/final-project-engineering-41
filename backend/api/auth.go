@@ -22,11 +22,14 @@ type AuthErrorResponse struct {
 	Error string `json:"error"`
 }
 
+// Jwt key yang akan dipakai untuk membuat signature
 var jwtKey = []byte("key")
 
+// Struct claim digunakan sebagai object yang akan di encode oleh jwt
+// jwt.StandardClaims ditambahkan sebagai embedded type untuk provide standart claim yang biasanya ada pada JWT
 type Claims struct {
 	Username string
-	//Role     string
+	Role     string
 	jwt.StandardClaims
 }
 
@@ -49,7 +52,7 @@ func (api *API) login(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	//userRole, _ := api.usersRepo.FetchUserRole(*res)
+	userRole, _ := api.usersRepo.FetchUserRole(*res)
 
 	// Deklarasi expiry time untuk token jwt
 	expirationTime := time.Now().Add(60 * time.Minute)
@@ -57,7 +60,7 @@ func (api *API) login(w http.ResponseWriter, req *http.Request) {
 	// Buat claim menggunakan variable yang sudah didefinisikan diatas
 	claims := &Claims{
 		Username: *res,
-		//TipeUser:     *userRole,
+		Role:     *userRole,
 		StandardClaims: jwt.StandardClaims{
 			// expiry time menggunakan time millisecond
 			ExpiresAt: expirationTime.Unix(),

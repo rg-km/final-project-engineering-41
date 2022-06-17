@@ -9,81 +9,48 @@ type MateriRepository struct {
 func NewMateriRepository(db *sql.DB) *MateriRepository {
 	return &MateriRepository{db: db}
 }
-
 func (p *MateriRepository) FetchMateriByID(id int64) (Materi, error) {
 	//TODO: You must implement this function fot fetch product by id
-	sqlStatement := `SELECT id, id_materi, id_subject, id_tingkat, tanggal, file FROM materi WHERE id = ?`
-
-	row := p.db.QueryRow(sqlStatement, id)
-
+	//beginanswer
 	var materi Materi
-
-	err := row.Scan(
-		&materi.ID,
-		&materi.IdMateri,
-		&materi.IdSubject,
-		&materi.IdTingkat,
-		&materi.Tanggal,
-		&materi.File,
-	)
-
+	err := p.db.QueryRow("SELECT * FROM materi WHERE id = ?", id).Scan(&materi.ID, &materi.NamaMateri, &materi.NamaSubject, &materi.Tanggal, &materi.KategoriTingkat, &materi.File)
 	if err != nil {
-		return Materi{}, err
+		return materi, err
 	}
-	return materi, nil // TODO: replace this
+	return materi, nil
+	//endanswer return Product{}, nil
 }
 
-func (p *MateriRepository) FetchMateriByIdMateri(IdMateri string) (Materi, error) {
+func (p *MateriRepository) FetchMateriByName(NamaMateri string) (Materi, error) {
 	// TODO: You must implement this function for fetch product by name
-	sqlStatement := `SELECT id, id_materi, id_subject, id_tingkat, tanggal, file FROM materi WHERE id_materi = ?`
-
-	row := p.db.QueryRow(sqlStatement, IdMateri)
-
+	//beginanswer
 	var materi Materi
-
-	err := row.Scan(
-		&materi.ID,
-		&materi.IdMateri,
-		&materi.IdSubject,
-		&materi.IdTingkat,
-		&materi.Tanggal,
-		&materi.File,
-	)
-
+	err := p.db.QueryRow("SELECT * FROM materi WHERE nama_materi = ?", NamaMateri).Scan(&materi.ID, &materi.NamaMateri, &materi.NamaSubject, &materi.Tanggal, &materi.KategoriTingkat, &materi.File)
 	if err != nil {
-		return Materi{}, err
+		return materi, err
 	}
-	return materi, nil // TODO: replace this
+	return materi, nil
+	//endanswer return Product{}, nil
 }
 
 func (p *MateriRepository) FetchMateri() ([]Materi, error) {
 	// TODO: You must implement this function for fetch all products
-	var sqlStatement string
-	var materi2 []Materi
-
-	sqlStatement = `SELECT id, id_materi, id_subject, id_tingkat, tanggal, file FROM materi`
-
-	rows, err := p.db.Query(sqlStatement)
+	//beginanswer
+	rows, err := p.db.Query("SELECT * FROM materi")
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
+
+	var materi1 []Materi
 	for rows.Next() {
 		var materi Materi
-
-		err := rows.Scan(
-			&materi.ID,
-			&materi.IdMateri,
-			&materi.IdSubject,
-			&materi.IdTingkat,
-			&materi.Tanggal,
-			&materi.File,
-		)
+		err := rows.Scan(&materi.ID, &materi.NamaMateri, &materi.NamaSubject, &materi.Tanggal, &materi.KategoriTingkat, &materi.File)
 		if err != nil {
 			return nil, err
 		}
-		materi2 = append(materi2, materi)
+		materi1 = append(materi1, materi)
 	}
-
-	return materi2, nil // TODO: replace this
+	return materi1, nil
+	//endanswer return []Product{}, nil
 }
