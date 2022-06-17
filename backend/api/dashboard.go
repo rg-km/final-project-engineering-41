@@ -5,10 +5,10 @@ type DashboardErrorResponse struct {
 }
 
 type CartItem struct {
-	NamaMateri string `json:"nama_materi"`
-	Category   string `json:"category"`
-	Price      int    `json:"price"`
-	Quantity   int    `json:"quantity"`
+	ProductName string `json:"product_name"`
+	Category    string `json:"category"`
+	Price       int    `json:"price"`
+	Quantity    int    `json:"quantity"`
 }
 
 type DashboardSuccessResponse struct {

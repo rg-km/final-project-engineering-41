@@ -1,4 +1,3 @@
-// package api
 package api
 
 import (
@@ -11,16 +10,16 @@ type MateriListErrorResponse struct {
 }
 
 type Materi struct {
-	ID        int    `db:"id"`
-	IdMateri  string `db:"id_materi"`
-	IdSubject string `db:"id_subject"`
-	IdTingkat string `db:"id_movie"`
-	Tanggal   string `db:"tingkat"`
-	File      string `db:"file"`
+	ID              int    `db:"id"`
+	NamaMateri      string `db:"nama_materi"`
+	NamaSubject     string `db:"nama_subject"`
+	Tanggal         string `db:"date"`
+	KategoriTingkat string `db:"kategori_tingkat"`
+	File            string `db:"file"`
 }
 
 type MateriListSuccessResponse struct {
-	materi2 []Materi `json:"materi"`
+	Materi1 []Materi `json:"materi"`
 }
 
 func (api *API) materiList(w http.ResponseWriter, req *http.Request) {
@@ -28,9 +27,9 @@ func (api *API) materiList(w http.ResponseWriter, req *http.Request) {
 	encoder := json.NewEncoder(w)
 
 	response := MateriListSuccessResponse{}
-	response.materi2 = make([]Materi, 0)
+	response.Materi1 = make([]Materi, 0)
 
-	materi2, err := api.materiRepo.FetchMateri()
+	materi1, err := api.materiRepo.FetchMateri()
 	defer func() {
 		if err != nil {
 			w.WriteHeader(http.StatusBadRequest)
@@ -42,13 +41,13 @@ func (api *API) materiList(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	for _, materi := range materi2 {
-		response.materi2 = append(response.materi2, Materi{
-			IdMateri:  materi.IdMateri,
-			IdSubject: materi.IdSubject,
-			IdTingkat: materi.IdTingkat,
-			Tanggal:   materi.Tanggal,
-			File:      materi.File,
+	for _, materi := range materi1 {
+		response.Materi1 = append(response.Materi1, Materi{
+			NamaMateri:      materi.NamaMateri,
+			NamaSubject:     materi.NamaSubject,
+			Tanggal:         materi.Tanggal,
+			KategoriTingkat: materi.KategoriTingkat,
+			File:            materi.File,
 		})
 	}
 
