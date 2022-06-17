@@ -17,11 +17,12 @@ function TableRow(props) {
 
     return (
         <tr style={{ backgroundColor: "#fff", borderBottom: "1px solid #E3E3E3" }}>
-            <th className='p-2 py-3'>
-                <div className='d-flex align-items-center'>
-                    <img style={{ maxWidth: "30px" }} src={userIcon} alt="" />
-                    <div className='ms-3 fw-normal'>Charlie Puth</div>
+            <th className='py-4 px-3 d-flex align-items-center'>
+                <div className='flex justify-center' style={{ maxWidth: "30px" }}>
+                    <img style={{ width: "100%", maxHeight: "30px" }} src={userIcon} alt="" />
                 </div>
+                <div className='ms-3 fw-normal'>Charlie Puth</div>
+                {/* </div> */}
             </th>
             <th className="text-muted">Basic Plan</th>
             <th className="fw-normal">Rp. 10,000</th>

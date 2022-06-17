@@ -6,7 +6,7 @@ import userIcon from '../../assets/userIcon.png'
 function TablePost() {
     return (
         <tr style={{ borderBottom: "1px solid #D9D9D9" }}>
-            <th className='py-4 ps-5 fw-bold'>P-12/21/22</th>
+            <th className='py-4 ps-4 fw-bold'>P-12/21/22</th>
             <th className='fw-normal'>John Doe</th>
             <th className='fw-normal'>Materi Pengertian, Karakteristik dan Komponen Sistem Produksi</th>
             <th className='fw-normal'>Matematika</th>
