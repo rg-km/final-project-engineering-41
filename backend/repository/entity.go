@@ -8,6 +8,7 @@ type User struct {
 	Email    string `db:"email"`
 	Password string `db:"password"`
 	Role     string `db:"role"`
+	NoTelp   int    `db:"notelp"`
 	Loggedin bool   `db:"loggedin"`
 	Token    string `db:"token"`
 }

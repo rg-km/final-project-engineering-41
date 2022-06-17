@@ -33,7 +33,7 @@ func (api *API) materiList(w http.ResponseWriter, req *http.Request) {
 	defer func() {
 		if err != nil {
 			w.WriteHeader(http.StatusBadRequest)
-			encoder.Encode(DashboardErrorResponse{Error: err.Error()})
+			//encoder.Encode(DashboardErrorResponse{Error: err.Error()})
 			return
 		}
 	}()

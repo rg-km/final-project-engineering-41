@@ -3,6 +3,7 @@ package repository
 import (
 	"database/sql"
 	"errors"
+	"regexp"
 )
 
 type UserRepository struct {
@@ -18,7 +19,7 @@ func (u *UserRepository) FetchUserByID(id int64) (User, error) {
 
 	row := u.db.QueryRow(`SELECT * FROM users WHERE id = ?`, id)
 
-	err := row.Scan(&user.ID, &user.Username, &user.Password, &user.Role, &user.Loggedin)
+	err := row.Scan(&user.ID, &user.Username, &user.Password, &user.NoTelp, &user.Role, &user.Loggedin)
 	if err != nil {
 		return user, err
 	}
@@ -38,7 +39,7 @@ func (u *UserRepository) FetchUsers() ([]User, error) {
 	for rows.Next() {
 		var user User
 
-		err = rows.Scan(&user.ID, &user.Username, &user.Password, &user.Role, &user.Loggedin)
+		err = rows.Scan(&user.ID, &user.Username, &user.Password, &user.Role, &user.NoTelp, &user.Loggedin)
 		if err != nil {
 			return users, err
 		}
@@ -60,13 +61,26 @@ func (u *UserRepository) Login(username string, password string) (*string, error
 	return &user.Username, nil
 }
 
-func (u *UserRepository) InsertUser(username string, password string, role string, loggedin bool) error {
-	_, err := u.db.Exec(`INSERT INTO users (username, password, role, loggedin) VALUES (?, ?, ?, ?)`, username, password, role, loggedin)
-	if err != nil {
-		return err
+func isEmailValid(e string) bool {
+	emailRegex := regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
+	return emailRegex.MatchString(e)
+}
+
+func (u *UserRepository) InsertUser(username string, email string, password string, notelp int, role string) (*string, error) {
+
+	if isEmailValid(email) {
+		sqlStatement := `INSERT INTO users (username, email, password, notelp, role, loggedin) 
+		VALUES (?, ?, ?, ?, ?, false)`
+
+		_, err := u.db.Exec(sqlStatement, username, email, password, notelp, role)
+		if err != nil {
+			return nil, err
+		}
+	} else {
+		return nil, errors.New("Format salah")
 	}
 
-	return nil
+	return &username, nil // TODO: replace this
 }
 
 func (u *UserRepository) FetchUserRole(username string) (*string, error) {

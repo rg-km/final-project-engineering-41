@@ -17,11 +17,11 @@ func main() {
 
 	usersRepo := repository.NewUserRepository(db)
 	materiRepo := repository.NewMateriRepository(db)
-	productsRepo := repository.NewProductRepository(db)
-	cartItemRepo := repository.NewCartItemRepository(db)
-	salesRepo := repository.NewSalesRepository(db)
-	transactionRepo := repository.NewTransactionRepository(db, *productsRepo, *cartItemRepo)
+	//productsRepo := repository.NewProductRepository(db)
+	//cartItemRepo := repository.NewCartItemRepository(db)
+	//salesRepo := repository.NewSalesRepository(db)
+	//transactionRepo := repository.NewTransactionRepository(db, *productsRepo, *cartItemRepo)
 
-	mainAPI := api.NewAPI(*usersRepo, *materiRepo, *productsRepo, *cartItemRepo, transactionRepo, *salesRepo)
+	mainAPI := api.NewAPI(*usersRepo, *materiRepo)
 	mainAPI.Start()
 }
