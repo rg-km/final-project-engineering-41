@@ -49,6 +49,7 @@ function App() {
     {/* <CardSubscribe /> 
     <Footer /> */}
     {/* ADMIN PAGE */}
+    {/* <Header /> */}
     <AdminSettings />
     {/* <Footer /> */}
       </>
