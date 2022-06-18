@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/settings.css'
+import '../styles/adminSettings.css'
 import { Icon } from '@iconify/react';
 import Account from './settings/account';
 import Post from './settings/post';

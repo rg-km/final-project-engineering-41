@@ -4,7 +4,7 @@ import React from 'react'
 import Footer from './components/footer'
 import Header from './components/header'
 import { Routes, Route } from 'react-router-dom'
-import Settings from './components/settings'
+import Settings from './components/adminSettings'
 // import CardSubscribe from './components/cardSubscribe'
 
 
