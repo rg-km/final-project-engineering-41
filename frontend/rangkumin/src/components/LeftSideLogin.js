@@ -1,4 +1,5 @@
 import '../App.css';
+import '../styles/loginReg.css'
 import React, {Component} from 'react';
 import ellipse from '../assets/loginPage/ellipse.png';
 import model3d from '../assets/loginPage/object3d.png';

@@ -1,0 +1,31 @@
+.pop-up {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    width: 45%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    margin-bottom: 50%;
+}
+
+.modal-window {
+    position: absolute;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 140vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background-color: #ba3521;
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 20px;
+}

@@ -1,0 +1,33 @@
+th {
+  padding: 10px;
+}
+
+.bg-custom-color {
+  background-color: #f9fbfc;
+}
+
+.custom-radius {
+  border-radius: 25px;
+}
+
+.custom-red-border {
+  border: 2px solid #f55139;
+}
+
+.responsive-padding {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+@media only screen and (max-width: 1192px) {
+  .responsive-padding {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .responsive-padding {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

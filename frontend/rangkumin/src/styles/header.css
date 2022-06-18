@@ -1,0 +1,40 @@
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.btn-Header {
+  background-color: #f55139;
+  color: white;
+  width: 100px;
+  height: 40px;
+
+  border: none;
+  border-radius: 5px;
+}
+
+.responsive-menu {
+  background-color: #13222c;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  display: none;
+}
+
+ul li {
+  padding: 10px;
+  font-size: 1.25rem;
+}
+
+.active-transition {
+  display: block;
+}
+
+.logo-responsive {
+  max-width: 230px;
+}
+
+@media only screen and (max-width: 768px) {
+  .logo-responsive {
+    max-width: 150px;
+  }
+}
