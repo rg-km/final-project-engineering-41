@@ -13,12 +13,12 @@ function Header() {
         <>
             <div className='nav-bar px-5'>
                 <img className="logo-responsive" src={Logo} alt="" />
-                <div className='h-100 d-none d-md-flex text-light align-items-center'>
-                    <Link to="/">Home</Link>
-                    <Link to="/">Course</Link>
-                    <Link to="/">About Us</Link>
+                <div className='h-100 d-none d-md-flex text-light align-items-center '>
+                    <Link className='link' to="/">Home</Link>
+                    <Link className='link' to="/">Course</Link>
+                    <Link className='link' to="/">About Us</Link>
                 </div>
-                <Link to="/settings" style={{ maxWidth: "230px" }} className="d-none d-md-flex align-items-center justify-content-center">
+                <Link to="/settings" style={{ maxWidth: "230px" }} className="d-none d-md-flex align-items-center justify-content-center ">
                     <div style={{ borderRadius: "25px", padding: "2px", paddingLeft: "5px", backgroundColor: "rgba(186,53,33,0.54)" }} className='profile d-flex align-items-center'>
                         <div className="ps-3">
                             Via Listi A

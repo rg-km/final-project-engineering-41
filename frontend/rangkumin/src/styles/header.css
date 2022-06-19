@@ -1,9 +1,9 @@
-* {
-  font-family: "Inter", sans-serif;
+*{
+  font-family: 'Inter', sans-serif;
 }
 
-.btn-Header {
-  background-color: #f55139;
+.btn-Header{
+  background-color: #F55139;
   color: white;
   width: 100px;
   height: 40px;
@@ -20,9 +20,10 @@
   display: none;
 }
 
-ul li {
+.responsive-menu ul li {
   padding: 10px;
   font-size: 1.25rem;
+  color :white; 
 }
 
 .active-transition {
