@@ -28,15 +28,18 @@ function App() {
 
 	return (
 		<>
-			<BrowserRouter>
+			{/* <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
 		<Route path="/login" element={<LeftSideLogin />} />
 		<Route path="/register" element={<RightSideRegister />} />
+		<Route path="/payment" element={<Modal />} />
+		<Route path="/subscribe" element={<CardSubscribe />} />
 		
 
       </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
+
 		</>
 	);
 }
