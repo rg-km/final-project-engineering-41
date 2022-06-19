@@ -20,6 +20,9 @@ import HeaderLogin from "./components/headerCopy.js";
 import Homepage from "./components/Homepage";
 import AdminSettings from "./components/adminSettings.js";
 import "bootstrap/dist/css/bootstrap.min.css";
+import AboutUs from "./components/AboutUs";
+
+import "../../rangkumin/src/styles/hero.css";
 
 function App() {
 	const [state, setState] = React.useState(false);
@@ -28,18 +31,22 @@ function App() {
 
 	return (
 		<>
-			{/* <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-		<Route path="/login" element={<LeftSideLogin />} />
-		<Route path="/register" element={<RightSideRegister />} />
-		<Route path="/payment" element={<Modal />} />
-		<Route path="/subscribe" element={<CardSubscribe />} />
-		
+			{state ? <Modal logo={logo} setState={setState} /> : ""}
 
-      </Routes>
-      </BrowserRouter> */}
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Homepage />} />
+					<Route path="/login" element={<LeftSideLogin />} />
+					<Route path="/aboutUs" element={<AboutUs />} />
+					<Route path="/register" element={<RightSideRegister />} />
 
+					<Route
+						path="/payment"
+						element={<Hero setLogo={setLogo} setState={setState} />}
+					/>
+					<Route path="/subscribe" element={<CardSubscribe />} />
+				</Routes>
+			</BrowserRouter>
 		</>
 	);
 }
