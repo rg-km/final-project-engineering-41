@@ -185,12 +185,12 @@ img {
   background-color: #f2f2f2;
   border-radius: 10px;
   width: 45%;
-  height: 40%;
+  height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  margin-bottom: 50%;
+  /* margin-bottom: 50%; */
 }
 
 .account {

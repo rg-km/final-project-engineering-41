@@ -4,6 +4,8 @@ import Hero from './components/hero'
 import Nav from './components/nav'
 import Modal from './components/props/modal'
 
+import './App.css'
+
 
 function App() {
 
