@@ -64,7 +64,7 @@ export class RightSideRegister extends Component {
           </Button>
           </div>
           <Form.Text className="text-muted">
-          Already have an account? <a className='sign-up-button' href='#'>Sign In</a>
+          Already have an account? <a className='sign-up-button' href='/login'>Sign In</a>
             </Form.Text>
         </Form>
         {/* Mobile Form */}

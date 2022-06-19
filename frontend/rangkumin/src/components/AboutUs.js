@@ -1,16 +1,15 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Header from "../components/Header";
+import Header from "../components/header";
 import Footer from "../components/Footer";
 
-import AboutVector from "../assets/AboutVector.svg";
-import TeamGilang from "../assets/Gilang.png";
-import TeamDaffa from "../assets/Daffa.png";
-import TeamVia from "../assets/Via.png";
-import TeamDea from "../assets/Dea.png";
-import TeamRidwan from "../assets/Ridwan.png";
+import AboutVector from "../assets/AboutUs/AboutVector.svg";
+import TeamGilang from "../assets/AboutUs/Gilang.png";
+import TeamDaffa from "../assets/AboutUs/Daffa.png";
+import TeamVia from "../assets/AboutUs/Via.png";
+import TeamDea from "../assets/AboutUs/Dea.png";
+import TeamRidwan from "../assets/AboutUs/Ridwan.png";
 
-import "../styles/aboutUs.css";
 
 export default function AboutUs() {
 	return (
@@ -50,8 +49,12 @@ export default function AboutUs() {
 					<Row className="d-flex justify-content-center">
 						<Col className="d-flex justify-content-center my-2">
 							<div
-								className="Card-About text-center p-2"
-								style={{ width: "280px" }}>
+								className="text-center p-2"
+								style={{
+									width: "280px",
+									boxShadow: "0px 5px 21px 2px rgba(0, 0, 0, 0.05)",
+									borderRadius: "10px",
+								}}>
 								<img
 									src={TeamGilang}
 									alt="Image Team Gilang"
@@ -65,8 +68,11 @@ export default function AboutUs() {
 						<Col className="d-flex justify-content-center my-2">
 							<div
 								className="text-center p-2"
-								style={{ width: "280px" , boxShadow: "0px 5px 21px 2px rgba(0, 0, 0, 0.05)",
-								borderRadius: "10px"}}>
+								style={{
+									width: "280px",
+									boxShadow: "0px 5px 21px 2px rgba(0, 0, 0, 0.05)",
+									borderRadius: "10px",
+								}}>
 								<img
 									src={TeamDaffa}
 									alt="Image Team Gilang"
@@ -79,8 +85,12 @@ export default function AboutUs() {
 						</Col>
 						<Col className="d-flex justify-content-center my-2">
 							<div
-								className="Card-About text-center p-2"
-								style={{ width: "280px" }}>
+								className="text-center p-2"
+								style={{
+									width: "280px",
+									boxShadow: "0px 5px 21px 2px rgba(0, 0, 0, 0.05)",
+									borderRadius: "10px",
+								}}>
 								<img
 									src={TeamVia}
 									alt="Image Team Gilang"
@@ -93,8 +103,12 @@ export default function AboutUs() {
 						</Col>
 						<Col className="d-flex justify-content-center my-2">
 							<div
-								className="Card-About text-center p-2"
-								style={{ width: "280px" }}>
+								className="text-center p-2"
+								style={{
+									width: "280px",
+									boxShadow: "0px 5px 21px 2px rgba(0, 0, 0, 0.05)",
+									borderRadius: "10px",
+								}}>
 								<img
 									src={TeamDea}
 									alt="Image Team Gilang"
@@ -107,8 +121,12 @@ export default function AboutUs() {
 						</Col>
 						<Col className="d-flex justify-content-center my-2">
 							<div
-								className="Card-About text-center p-2"
-								style={{ width: "280px" }}>
+								className="text-center p-2"
+								style={{
+									width: "280px",
+									boxShadow: "0px 5px 21px 2px rgba(0, 0, 0, 0.05)",
+									borderRadius: "10px",
+								}}>
 								<img
 									src={TeamRidwan}
 									alt="Image Team Gilang"

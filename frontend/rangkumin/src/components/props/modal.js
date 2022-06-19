@@ -45,7 +45,7 @@ function Modal({ setState, logo }) {
 
                 </div>
 
-                <button className="m-4 rounded-4 d-flex justify-content-center" style={{ borderRadius : "10px" }}>Konfirmasi Pembayaran</button>
+                <button className="m-4 rounded-4 d-flex justify-content-center btn-modal" style={{ borderRadius : "10px" }}>Konfirmasi Pembayaran</button>
 
             </div>
         </div>

@@ -60,8 +60,8 @@ function Homepage() {
                 <div className='position-relative'>
                     <div className='position-absolute card-Bg start-0 translate-middle-y'></div>
                     <Row>
-                        <Col className='d-flex justify-content-center'>
-                            <Card style={{ width: '14rem' }} className="card-Custom mb-5 p-2 text-start">
+                        <Col className='d-flex justify-content-center'> 
+                            <Card style={{ width: '16rem' }} className="card-Custom mb-5 p-2 text-start">
                                 <Card.Img variant="top" src={contentCard} className="img-fluid rounded"/>
                                 <Card.Title className='fw-bold fs-6 mt-2'>Neque porro est qui dolorem ipsum</Card.Title>
                                 <div className='d-flex justify-content-between'>
@@ -69,7 +69,7 @@ function Homepage() {
                                         <TbMathSymbols className='me-2' size={25} style={{ color:"#F55139" }}/>
                                         <label>Matematika</label>
                                     </div>
-                                    <div className='mt-4'>
+                                    <div className='mt-4 ps-2'>
                                         <a className='text-decoration-none fw-bold card-Text' href="#">See More...</a>
                                     </div>
                                 </div>

@@ -6,9 +6,6 @@
 }
 
 /* Root Font Size  */
-html {
-  font-size: 87.5%;
-}
 
 /* Navigation  */
 .nav-bar {
@@ -24,7 +21,7 @@ html {
   max-width: 150px;
 }
 
-ul {
+/* ul {
   display: flex;
   align-items: center;
 }
@@ -34,7 +31,7 @@ ul li {
   padding-left: 10px;
   padding-right: 10px;
   list-style-type: none;
-}
+} */
 
 /* Red Underline  */
 .red {
@@ -84,7 +81,6 @@ ul li {
 /* Navigation End  */
 
 
-<<<<<<< HEAD
 .payment-image {
   display: grid;
   grid-template-columns: repeat(2, 120px);
@@ -153,7 +149,7 @@ ul li {
   margin-top: 30px;
 }
 
-img {
+.header img {
   max-width: 120px;
   margin-left: 10px;
 }
@@ -193,7 +189,7 @@ img {
   max-width: 200px;
 }
 
-button {
+.btn-modal button {
   background-color: #ba3521;
   color: white;
   border: none;
@@ -208,9 +204,6 @@ button {
   padding: 20px;
 }
 /* Hero Section End  */
-=======
->>>>>>> 89662c5e2d954fdc53130aa29a33a88017dfcbec
-
 /* Footer Section  */
 
 .footer {
@@ -219,11 +212,11 @@ button {
   width: 100%;
 }
 
-a {
+/* a {
   text-decoration: none;
   color: white;
   padding: 20px;
-}
+} */
 
 .social-media {
   gap: 20px;
@@ -266,7 +259,7 @@ a {
 /* Responsive to Tablet  */
 
 @media only screen and (max-width: 768px) {
-  html {
+  .hero {
     font-size: 62.5%;
   }
 
@@ -293,6 +286,8 @@ a {
 
   .hero {
     width: 100%;
+  font-size: 87.5%;
+
   }
 
   .padding {
@@ -316,9 +311,9 @@ a {
     height: 20px;
   }
 
-  a {
+  /* a {
     padding: 10px;
-  }
+  } */
 
   .responsive-box {
     margin-top: 20px;
@@ -333,7 +328,8 @@ a {
 
 /* Responsive to Mobile Phone  */
 @media only screen and (max-width: 478px) {
-  html {
+
+  .hero{
     font-size: 45%;
   }
 

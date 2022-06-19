@@ -21,6 +21,8 @@ import Homepage from "./components/Homepage";
 import AdminSettings from "./components/adminSettings.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AboutUs from "./components/AboutUs";
+import Course from "./components/Course";
+import courseDetail from "./components/CourseDetail";
 
 import "../../rangkumin/src/styles/hero.css";
 
@@ -38,9 +40,11 @@ function App() {
 					<Route path="/" element={<Homepage />} />
 					<Route path="/login" element={<LeftSideLogin />} />
 					<Route path="/aboutUs" element={<AboutUs />} />
-					<Route path="/register" element={<RightSideRegister />} />
+					<Route path="/signup" element={<RightSideRegister />} />
+					<Route path="/course" element={<Course />} />
+					<Route path="/courseDetail/:id" element={<courseDetail />} />
 
-					<Route
+					<Route 
 						path="/payment"
 						element={<Hero setLogo={setLogo} setState={setState} />}
 					/>
