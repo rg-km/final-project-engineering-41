@@ -22,8 +22,9 @@ import AdminSettings from "./components/adminSettings.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AboutUs from "./components/AboutUs";
 import Course from "./components/Course";
-import courseDetail from "./components/CourseDetail";
+import CourseDetail from "./components/CourseDetail";
 
+import CourseData from "./data/course.json";
 import "../../rangkumin/src/styles/hero.css";
 
 function App() {
@@ -42,7 +43,7 @@ function App() {
 					<Route path="/aboutUs" element={<AboutUs />} />
 					<Route path="/signup" element={<RightSideRegister />} />
 					<Route path="/course" element={<Course />} />
-					<Route path="/courseDetail/:id" element={<courseDetail />} />
+					<Route path="/courseDetail/:id" element={<CourseDetail />} />
 
 					<Route 
 						path="/payment"
