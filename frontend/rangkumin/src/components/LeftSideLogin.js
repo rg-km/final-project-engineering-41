@@ -5,9 +5,19 @@ import ellipse from "../assets/loginPage/ellipse.png";
 import model3d from "../assets/loginPage/object3d.png";
 import logo from "../assets/loginPage/logo.png";
 import { Form, Button, Container } from "react-bootstrap";
+import { Link, Navigate, Route, Routes, useNavigate } from "react-router-dom";
 
-export class LeftSideLogin extends Component {
-	render() {
+export function LeftSideLogin() {
+	const navigate = useNavigate();
+
+	const navigateToHomepage = () => {
+		navigate("/homepage");
+	}
+
+	const navigateToSignup = () => {
+		navigate("/signup");
+	}
+
 		return (
 			<body>
 				<div className="side">
@@ -59,13 +69,14 @@ export class LeftSideLogin extends Component {
 									fontWeight: "bold",
 								}}
 								size="xl"
-								type="submit">
+								type="submit"
+								onClick={navigateToHomepage}>
 								Login
 							</Button>
 						</div>
 						<Form.Text className="text-muted">
 							Don’t have any account?{" "}
-							<a className="sign-up-button" href="#">
+							<a className="sign-up-button" href="/signup">
 								Sign Up
 							</a>
 						</Form.Text>
@@ -96,7 +107,8 @@ export class LeftSideLogin extends Component {
 									fontWeight: "bold",
 								}}
 								size="xl"
-								type="submit">
+								type="submit"
+								onClick={navigateToHomepage}>
 								Login
 							</Button>
 						</div>
@@ -111,4 +123,3 @@ export class LeftSideLogin extends Component {
 			</body>
 		);
 	}
-}

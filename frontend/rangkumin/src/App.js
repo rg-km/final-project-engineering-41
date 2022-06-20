@@ -41,7 +41,7 @@ function App() {
 
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" element={<Homepage />} />
+					<Route path="/homepage" element={<Homepage />} />
 					<Route path="/login" element={<LeftSideLogin />} />
 					<Route path="/aboutUs" element={<AboutUs />} />
 					<Route path="/signup" element={<RightSideRegister />} />

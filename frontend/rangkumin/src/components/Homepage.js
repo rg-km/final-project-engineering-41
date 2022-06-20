@@ -20,9 +20,25 @@ import ListCourses from './ListCourses.js'
 import Header from './header'
 import Footer from './Footer'
 
+import { Navigate, useNavigate } from 'react-router-dom'
+
 
 function Homepage() {
-  return (
+    const navigate = useNavigate()
+
+    const navigateToCourse = () => {
+        navigate('/course')
+    }
+
+    const navigateToSubscribe = () => {
+        navigate('/subscribe')
+    }
+
+    const navigateToLogin = () => {
+        navigate('/login')
+    }
+
+    return (
     <>
         <Container fluid style={{ backgroundColor : "#13222C", }}>   
             <Header />
@@ -40,8 +56,8 @@ function Homepage() {
                             <label className='hero-title fw-bold text-white' >Lorem ipsum dolor sit amet.</label>
                             <p className='text-white hero-sub'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique vulputate laoreet. In consectetur ultrices urna sed pulvinar. Etiam at porttitor orci. Vivamus interdum lacus.</p>
                             
-                            <button className="btn-Custom px-4 p-2">See Courses</button>
-                            <button className="btn-Custom px-4 mx-4 p-2">Berlangganan</button>
+                            <button onClick={navigateToCourse} className="btn-Custom px-4 p-2">See Courses</button>
+                            <button onClick={navigateToSubscribe} className="btn-Custom px-4 mx-4 p-2">Berlangganan</button>
                         </div>
                     </Col>
                     <Col className="d-flex align-items-center mb-5">
@@ -70,7 +86,7 @@ function Homepage() {
                                         <label>Matematika</label>
                                     </div>
                                     <div className='mt-4 ps-2'>
-                                        <a className='text-decoration-none fw-bold card-Text' href="#">See More...</a>
+                                        <a href="/course" className='text-decoration-none fw-bold card-Text'>See More...</a>
                                     </div>
                                 </div>
                             </Card>
@@ -214,7 +230,7 @@ function Homepage() {
 							</div>
 							<button
 								className="btn-Custom px-2 py-3"
-								style={{ width: "100%" }}>
+								style={{ width: "100%" }} onClick={navigateToSubscribe}>
 								Berlangganan
 							</button>
 							<label className="text-center fs-6 mt-2 text-secondary">
@@ -233,7 +249,7 @@ function Homepage() {
                     <div className='Banner-Content-Text align-middle'>
                         <p className='fs-3 fw-bold'>Log in to enjoy more benefits.</p>
                         <p>Vivamus luctus nibh eget interdum eleifend. Curabitur suscipit elementum semper.</p>
-                        <button className="btn-Custom py-2 px-5"> Log In </button>
+                        <button onClick={navigateToLogin} className="btn-Custom py-2 px-5"> Log In </button>
                     </div>
                     <div className='Banner-Content-Image text-end'>
                         <img src={CatOnBooks} style={{ width: "60%" }}></img>
@@ -249,7 +265,7 @@ function Homepage() {
                         <h2 className='fw-bold'>Latest Courses</h2>
                     </div>
                     <div>
-                        <button className='btn-Custom py-2 px-4'>See More...</button>
+                        <button className='btn-Custom py-2 px-4' onClick={navigateToCourse}>See More...</button>
                     </div>
                 </div>
                 <ListCourses/>

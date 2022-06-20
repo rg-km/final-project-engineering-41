@@ -25,11 +25,11 @@ function Header() {
 	return (
 		<>
 			<div className="nav-bar px-5 py-5">
-				<a href="/">
+				<a href="/homepage">
 					<img className="logo-responsive" src={Logo} alt="" />
 				</a>
 				<div className="h-100 d-none d-md-flex text-light align-items-center ">
-					<Link className="link" to="/">
+					<Link className="link" to="/homepage">
 						Home
 					</Link>
 					<Link className="link " to="/course">
