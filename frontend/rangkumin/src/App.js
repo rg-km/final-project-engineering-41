@@ -33,8 +33,17 @@ function App() {
         <Route path="/" element={<Homepage />} />
 		<Route path="/login" element={<LeftSideLogin />} />
 		<Route path="/register" element={<RightSideRegister />} />
-		
-
+		<Route path="/forgotpass" element={<ForgotPass />} />
+		<Route path="/resetpass" element={<ResetPass />} />
+		<Route path="/userSetting" element={<UserSetting />} />
+		<Route path="/accountSettings" element={<AccountSettings />} />
+		<Route path="/passwordSettings" element={<PasswordSettings />} />
+		<Route path="/subscriptionSettings" element={<SubscriptionSettings />} />
+		<Route path="/hero" element={<Hero />} />
+		<Route path="/modal" element={<Modal />} />
+		<Route path="/footerCopy" element={<FooterCopy />} />
+		<Route path="/cardSubscribe" element={<CardSubscribe />} />
+		<Route path="/nav" element={<Nav />} />
       </Routes>
       </BrowserRouter>
 		</>
