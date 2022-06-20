@@ -30,6 +30,9 @@ import "../../rangkumin/src/styles/hero.css";
 function App() {
 	const [state, setState] = React.useState(false);
 	const [logo, setLogo] = React.useState("BNI");
+
+	const [course, setCourse] = React.useState(CourseData);
+
 	console.log(logo);
 
 	return (
@@ -45,11 +48,12 @@ function App() {
 					<Route path="/course" element={<Course />} />
 					<Route path="/courseDetail/:id" element={<CourseDetail />} />
 
-					<Route 
+					<Route
 						path="/payment"
 						element={<Hero setLogo={setLogo} setState={setState} />}
 					/>
 					<Route path="/subscribe" element={<CardSubscribe />} />
+					<Route path="/setting/:role" element={<UserSetting />} />
 				</Routes>
 			</BrowserRouter>
 		</>
