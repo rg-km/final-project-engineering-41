@@ -2,6 +2,11 @@
   font-family: 'Inter', sans-serif;
 }
 
+.link{
+  text-decoration: none;
+  color: #fff;
+  padding: 20px;
+}
 .btn-Header{
   background-color: #F55139;
   color: white;
@@ -24,6 +29,7 @@
   padding: 10px;
   font-size: 1.25rem;
   color :white; 
+  text-decoration: none;
 }
 
 .active-transition {
@@ -31,9 +37,8 @@
 }
 
 .logo-responsive {
-  max-width: 230px;
+  max-width: 200px;
 }
-
 @media only screen and (max-width: 768px) {
   .logo-responsive {
     max-width: 150px;

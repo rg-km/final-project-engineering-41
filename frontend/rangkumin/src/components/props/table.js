@@ -27,7 +27,7 @@ function TableRow(props) {
             <th className="fw-normal">Rp. 10,000</th>
             <th className="fw-normal">6/13/2022</th>
             <th style={{ width: "350px" }} className="position-relative" >
-                <div className='d-flex'>
+                <div className='d-flex select-set'>
                     <select onClick={changeStatus} style={{ border: "none", outline: "none" }} className={`${state === "Unpaid" ? "custom-red" : "custom-green"} fw-bolder py-1 d-flex rounded-3 width-paid align-items-center text-light px-1 justify-content-between`}>
                         <option value={props.title} className={`${props.title === "Unpaid" ? "custom-red" : "custom-green"}`} style={{ fontSize: "1rem", paddingLeft: "5px" }}>{props.title}</option>
                         <option value={props.title === "Unpaid" ? "Paid" : "Unpaid"} className={`${props.title === "Unpaid" ? "custom-green" : "custom-red"}`} style={{ fontSize: "1rem", paddingLeft: "5px" }}>{props.title === "Unpaid" ? "Paid" : "Unpaid"}</option>

@@ -1,0 +1,34 @@
+[
+    {
+        "id":  1,
+        "category": "SMA/K",
+        "matapel": "Matematika",
+        "title": "Materi Pengertian, Karakteristik dan Komponen Sistem Produksi Mapel Prakarya",
+        "materi" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id purus vestibulum massa neque. Quis vestibulum et quis arcu. Et nulla neque ultricies suscipit. Elementum neque, nec pharetra bibendum semper orci, aliquam augue sit. Felis duis id arcu vitae sodales gravida. In vel tortor fames purus aliquet. Natoque maecenas sit condimentum porttitor aliquam. Pretium pellentesque lectus odio amet, et. Cursus lacinia tortor arcu posuere nunc pellentesque est. Magna dignissim laoreet integer facilisi quis.",
+        "thumbnail": "../assets/Courses-img.png",
+        "author": [
+            {
+                "id": 1,
+                "nama": "John"
+
+            }
+        ],
+        "vote": 120
+    },
+    {
+        "id":  2,
+        "category": "SMA/K",
+        "mata_pelajaran": "Prakarya",
+        "title": "Materi Pengertian, Karakteristik dan Komponen Sistem Produksi Mapel Prakarya",
+        "materi" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id purus vestibulum massa neque. Quis vestibulum et quis arcu. Et nulla neque ultricies suscipit. Elementum neque, nec pharetra bibendum semper orci, aliquam augue sit. Felis duis id arcu vitae sodales gravida. In vel tortor fames purus aliquet. Natoque maecenas sit condimentum porttitor aliquam. Pretium pellentesque lectus odio amet, et. Cursus lacinia tortor arcu posuere nunc pellentesque est. Magna dignissim laoreet integer facilisi quis.",
+        "thumbnail": "../assets/courseDetail/Thumbnail-Img.jpg",
+        "author": [
+            {
+                "id": 1,
+                "nama": "John"
+
+            }
+        ],
+        "vote": 120
+    }
+]

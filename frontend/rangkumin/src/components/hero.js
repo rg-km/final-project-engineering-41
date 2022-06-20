@@ -12,22 +12,28 @@ import MasterCard from '../assets/MasterCard.png'
 // Props
 import RenderImage from './props/renderImage'
 import Modal from './props/modal'
+import Header from './header.js'
+import Footer from './Footer'
+
+import '../styles/hero.css'
 
 function Hero({ setState, setLogo }) {
 
     return (
         <>
+        <Header/>
             <div className="hero p-md-5">
                 <div className='stabilizer'>
+
                     <h1 className='my-3 payment'>Payment</h1>
                     <div className='box-to-box d-flex flex-column-reverse flex-md-row'>
-                        <div className='box d-flex flex-column responsive-box p-3'>
+                        <div className='box responsive-box p-3'>
                             <div>
-                                <h4 className='my-2 mb-2'>Metode Pembayaran</h4>
+                                <h4 className='my-2 mb-3'>Metode Pembayaran</h4>
                             </div>
-                            <div className="border-bank mt-3">
+                            <div className="border-bank">
                                 <h5 className='my-3'>Transfer Bank</h5>
-                                <div className="payment-image">
+                                <div className="kartu-kredit payment-image">
                                     <RenderImage logoName="BNI" setLogo={setLogo} setState={setState} image={BNI} />
                                     <RenderImage logoName="Mandiri" setLogo={setLogo} setState={setState} image={Mandiri} />
                                     <RenderImage logoName="BRI" setLogo={setLogo} setState={setState} image={BRI} />
@@ -36,16 +42,16 @@ function Hero({ setState, setLogo }) {
                                 </div>
                             </div>
 
-                            <div className='mt-4 kartu'>
+                            <div className='mt-5 kartu'>
                                 <h5>Kartu Kredit</h5>
-                                <div className='payment-image'>
+                                <div className='d-flex kartu-kredit align-items-center'>
                                     <RenderImage logoName="VISA" setLogo={setLogo} setState={setState} image={VISA} />
                                     <RenderImage logoName="MasterCard" setLogo={setLogo} setState={setState} image={MasterCard} />
                                 </div>
                             </div>
                         </div>
 
-                        <div className='shadow ms-md-5 p-3 box'>
+                        <div className='box-shadow ms-md-5 p-3 box'>
                             <div className='my-2 mb-3'>
                                 <h4>Pemesanan</h4>
                             </div>
@@ -85,6 +91,7 @@ function Hero({ setState, setLogo }) {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

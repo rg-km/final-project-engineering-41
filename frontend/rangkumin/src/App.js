@@ -20,6 +20,12 @@ import HeaderLogin from "./components/headerCopy.js";
 import Homepage from "./components/Homepage";
 import AdminSettings from "./components/adminSettings.js";
 import "bootstrap/dist/css/bootstrap.min.css";
+import AboutUs from "./components/AboutUs";
+import Course from "./components/Course";
+import CourseDetail from "./components/CourseDetail";
+
+import CourseData from "./data/course.json";
+import "../../rangkumin/src/styles/hero.css";
 
 function App() {
 	const [state, setState] = React.useState(false);
@@ -28,24 +34,24 @@ function App() {
 
 	return (
 		<>
+			{state ? <Modal logo={logo} setState={setState} /> : ""}
+
 			<BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-		<Route path="/login" element={<LeftSideLogin />} />
-		<Route path="/register" element={<RightSideRegister />} />
-		<Route path="/forgotpass" element={<ForgotPass />} />
-		<Route path="/resetpass" element={<ResetPass />} />
-		<Route path="/userSetting" element={<UserSetting />} />
-		<Route path="/accountSettings" element={<AccountSettings />} />
-		<Route path="/passwordSettings" element={<PasswordSettings />} />
-		<Route path="/subscriptionSettings" element={<SubscriptionSettings />} />
-		<Route path="/hero" element={<Hero />} />
-		<Route path="/modal" element={<Modal />} />
-		<Route path="/footerCopy" element={<FooterCopy />} />
-		<Route path="/cardSubscribe" element={<CardSubscribe />} />
-		<Route path="/nav" element={<Nav />} />
-      </Routes>
-      </BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Homepage />} />
+					<Route path="/login" element={<LeftSideLogin />} />
+					<Route path="/aboutUs" element={<AboutUs />} />
+					<Route path="/signup" element={<RightSideRegister />} />
+					<Route path="/course" element={<Course />} />
+					<Route path="/courseDetail/:id" element={<CourseDetail />} />
+
+					<Route 
+						path="/payment"
+						element={<Hero setLogo={setLogo} setState={setState} />}
+					/>
+					<Route path="/subscribe" element={<CardSubscribe />} />
+				</Routes>
+			</BrowserRouter>
 		</>
 	);
 }

@@ -10,7 +10,7 @@ import { Routes, Route, Link } from 'react-router-dom'
 function Settings() {
 
     const [setting, setSetting] = React.useState("account")
-
+ 
     return (
         <div className="p-5">
             <h1 className='fw-bold'>Settings</h1>
