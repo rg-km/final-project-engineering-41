@@ -25,6 +25,7 @@ import Course from "./components/Course";
 import CourseDetail from "./components/CourseDetail";
 
 import CourseData from "./data/course.json";
+
 import "../../rangkumin/src/styles/hero.css";
 
 function App() {
@@ -41,19 +42,36 @@ function App() {
 
 			<BrowserRouter>
 				<Routes>
-					<Route path="/homepage" element={<Homepage />} />
+					<Route path="/" element={<Homepage />} />
 					<Route path="/login" element={<LeftSideLogin />} />
 					<Route path="/aboutUs" element={<AboutUs />} />
 					<Route path="/signup" element={<RightSideRegister />} />
 					<Route path="/course" element={<Course />} />
-					<Route path="/courseDetail/:id" element={<CourseDetail />} />
+					<Route
+						path="/courseDetail/:id"
+						element={CourseData.map((course, id) => (
+							<CourseDetail
+								key={id}
+								id={course.id}
+								matapel={course.matapel}
+								thumbnail={course.thumbnail}
+								title={course.title}
+								materi={course.materi}
+								authorname={course.authorname}
+								vote={course.vote}
+							/>
+						))}
+					/>
 
 					<Route
 						path="/payment"
 						element={<Hero setLogo={setLogo} setState={setState} />}
 					/>
 					<Route path="/subscribe" element={<CardSubscribe />} />
-					<Route path="/setting/:role" element={<UserSetting />} />
+					<Route path="/setting/user" element={<AccountSettings />} />
+					<Route path="/setting/admin" element={<AdminSettings />} />
+					<Route path="/forgetPassword" element={<ForgotPass />} />
+					<Route path="/resetPassword" element={<ResetPass />} />
 				</Routes>
 			</BrowserRouter>
 		</>

@@ -14,11 +14,10 @@ import Header from "../components/header";
 import Footer from "../components/Footer";
 import { Card } from "react-bootstrap";
 
-export default function courseDetail({id, matapel, thumbnail, title, materi, authorname, releaseDate, vote}) {
+export default function courseDetail({id, matapel, thumbnail, title, materi, authorname, vote, releasedate}) {
 	return (
 		<>
 			<Header />
-	
 						<div className="position-relative" id={id}>
 							<div
 								className="position-absolute top-50 start-0 translate-middle-y postCategories px-5 py-2"
@@ -61,7 +60,7 @@ export default function courseDetail({id, matapel, thumbnail, title, materi, aut
 												<div className="fs-1-5">
 													<Icon icon="fa:calendar" color="#898989" />
 													<span className="ml-1 text-secondary px-2">
-														{releaseDate}
+														{releasedate}
 													</span>
 												</div>
 											</div>
@@ -69,15 +68,7 @@ export default function courseDetail({id, matapel, thumbnail, title, materi, aut
 									</div>
 									{/* End AuthorDetail */}
 									<p className="fs-1-5 lh-base m-4">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id
-										purus vestibulum massa neque. Quis vestibulum et quis arcu.
-										Et nulla neque ultricies suscipit. Elementum neque, nec
-										pharetra bibendum semper orci, aliquam augue sit. Felis duis
-										id arcu vitae sodales gravida. In vel tortor fames purus
-										aliquet. Natoque maecenas sit condimentum porttitor aliquam.
-										Pretium pellentesque lectus odio amet, et. Cursus lacinia
-										tortor arcu posuere nunc pellentesque est. Magna dignissim
-										laoreet integer facilisi quis.
+										{materi}
 									</p>
 									{/* Vote */}
 									<div className="Card-Detail px-5 py-3">
