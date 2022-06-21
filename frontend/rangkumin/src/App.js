@@ -44,6 +44,7 @@ function App() {
 					<Route path="/signup" element={<RightSideRegister />} />
 					<Route path="/course" element={<Course />} />
 					<Route path="/courseDetail/:id" element={<CourseDetail />} />
+					<Route path="/usersetting" element={<AdminSettings />} />
 
 					<Route 
 						path="/payment"
