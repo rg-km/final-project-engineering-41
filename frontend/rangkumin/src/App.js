@@ -49,19 +49,7 @@ function App() {
 					<Route path="/course" element={<Course />} />
 					<Route
 						path="/courseDetail/:id"
-						element={CourseData.map((course, id) => (
-							<CourseDetail
-								key={id}
-								id={course.id}
-								matapel={course.matapel}
-								thumbnail={course.thumbnail}
-								title={course.title}
-								materi={course.materi}
-								authorname={course.authorname}
-								vote={course.vote}
-							/>
-						))}
-					/>
+						element= {<CourseDetail/>}/>
 
 					<Route
 						path="/payment"
