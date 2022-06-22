@@ -7,9 +7,14 @@ import logo from "../assets/loginPage/logo.png";
 import { Form, Button, Container } from "react-bootstrap";
 import { Link, Navigate, Route, Routes, useNavigate } from "react-router-dom";
 
+// Zustand
+import formData from "../stores/formData"
+
 import UserData from "../data/user.json";
 
 export function LeftSideLogin() {
+	const { emailData, passwordData } = formData ((state) => state);
+
 	const navigate = useNavigate();
 
 	const navigateToHomepage = () => {
@@ -55,7 +60,7 @@ export function LeftSideLogin() {
 						<Form.Control
 							style={{ width: "150%" }}
 							type="email"
-							placeholder="Enter your email"
+							placeholder={emailData}
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
 						/>
@@ -68,7 +73,7 @@ export function LeftSideLogin() {
 						<Form.Control
 							style={{ width: "150%" }}
 							type="password"
-							placeholder="*******"
+							placeholder={passwordData}
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
 						/>
