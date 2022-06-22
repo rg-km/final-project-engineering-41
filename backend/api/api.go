@@ -30,6 +30,7 @@ func NewAPI(usersRepo repository.UserRepository, materiRepo repository.MateriRep
 	// API with AuthMiddleware:
 	mux.Handle("/api/materi", api.GET(api.AuthMiddleWare(http.HandlerFunc(api.materiList))))
 	mux.Handle("/api/materibyid", api.GET(api.AuthMiddleWare(http.HandlerFunc(api.materibyid))))
+	mux.Handle("/api/materibysubject", api.GET(api.AuthMiddleWare(http.HandlerFunc(api.materibysubject))))
 	//mux.Handle("/api/products", api.GET(api.AuthMiddleWare(http.HandlerFunc(api.productList))))
 	//mux.Handle("/api/cart/add", api.POST(api.AuthMiddleWare(http.HandlerFunc(api.addToCart))))
 	//mux.Handle("/api/cart/clear", api.GET(api.AuthMiddleWare(http.HandlerFunc(api.clearCart))))

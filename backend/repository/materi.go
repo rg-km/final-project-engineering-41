@@ -34,7 +34,7 @@ func (p *MateriRepository) FetchMateriBySubject(NamaMateri string) (Materi, erro
 }
 
 func (p *MateriRepository) FetchMateri() ([]Materi, error) {
-	// TODO: You must implement this function for fetch all products
+	// TODO: You must implement this function for fetch all materi
 	//beginanswer
 	rows, err := p.db.Query("SELECT * FROM materi")
 	if err != nil {
