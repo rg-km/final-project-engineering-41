@@ -91,3 +91,38 @@ func (api *API) materibyid(w http.ResponseWriter, req *http.Request) {
 
 	encoder.Encode(response)
 }
+func (api *API) materibysubject(w http.ResponseWriter, req *http.Request) {
+	api.AllowOrigin(w, req)
+	encoder := json.NewEncoder(w)
+
+	response := MateriListSuccessResponse{}
+	response.Materi1 = make([]Materi, 0)
+
+	nama_subject := req.URL.Query().Get("nama_subject")
+
+	materi1, err := api.materiRepo.FetchMateriBySubject(nama_subject)
+	defer func() {
+		if err != nil {
+			w.WriteHeader(http.StatusBadRequest)
+			encoder.Encode(MateriListErrorResponse{Error: err.Error()})
+			return
+		}
+	}()
+	if err != nil {
+		return
+	}
+
+	for _, materi := range materi1 {
+		response.Materi1 = append(response.Materi1, Materi{
+			ID:              strconv.Itoa(int(materi.ID)),
+			IDMateri:        materi.IDMateri,
+			NamaMateri:      materi.NamaMateri,
+			NamaSubject:     materi.NamaSubject,
+			Tanggal:         materi.Tanggal,
+			KategoriTingkat: materi.KategoriTingkat,
+			File:            materi.File,
+		})
+	}
+
+	encoder.Encode(response)
+}
