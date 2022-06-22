@@ -13,8 +13,10 @@ export default function ListCourses() {
 			<Container>
 				{courseData.map((course) => {
 					return (
-						<div className="d-flex justify-content-center">
-							<a href={`/courseDetail/${course.id}`} className="text-decoration-none">
+						<a
+							href={`/courseDetail/${course.id}`}
+							className="text-decoration-none">
+							<div className="d-flex justify-content-center align-items-center">
 								<Card
 									className="card-Courses p-2 mb-5"
 									style={{ width: "90%" }}>
@@ -30,7 +32,9 @@ export default function ListCourses() {
 													<h3 className="fw-bold lh-base">{course.title}</h3>
 												</Card.Title>
 												<Card.Text>
-													<p className="text-muted mt-3">{course.materi}</p>
+													<p className="text-muted mt-3 text-materi">
+														{course.materi}
+													</p>
 												</Card.Text>
 												<div className="d-flex justify-content-between">
 													<div>
@@ -55,8 +59,8 @@ export default function ListCourses() {
 										</div>
 									</Card.Body>
 								</Card>
-							</a>
-						</div>
+							</div>
+						</a>
 					);
 				})}
 			</Container>

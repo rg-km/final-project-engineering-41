@@ -14,26 +14,21 @@ import Header from "../components/header";
 import Footer from "../components/Footer";
 import { Card } from "react-bootstrap";
 
-import CourseData from "../data/course.json";
-
-export default function courseDetail() {
+export default function courseDetail({id, matapel, thumbnail, title, materi, authorname, vote, releasedate}) {
 	return (
 		<>
-			<Header />
-			{CourseData.map((course, id) => {
-				return (
-					<>
-						<div className="position-relative" id={course.id}>
+			{/* <Header /> */}
+						<div className="position-relative" id={id}>
 							<div
 								className="position-absolute top-50 start-0 translate-middle-y postCategories px-5 py-2"
 								id="postCategories">
 								<div className="d-flex align-items-center">
 									<Icon icon="arcticons:speed-math" color="black" height="55" />
-									<label className="fw-bold fs-5 px-2">{course.matapel}</label>
+									<label className="fw-bold fs-5 px-2">{matapel}</label>
 								</div>
 							</div>
 							<div className="w-100 thumbnail">
-								<img className="img-fluid" src={course.thumbnail}></img>
+								<img className="img-fluid" src={thumbnail}></img>
 							</div>
 						</div>
 
@@ -41,10 +36,10 @@ export default function courseDetail() {
 							<div className="d-flex justify-content-between w-100">
 								<div className="w-70 my-5" style={{ width: "70%" }}>
 									<h2 className="fw-bolder ">
-										{course.title}
+										{title}
 									</h2>
 									<p className="fs-1-5 lh-base m-4">
-										{course.materi}
+										{materi}
 									</p>
 									{/* AuthorDetail */}
 									<div className="Card-Detail px-5 py-3">
@@ -59,13 +54,13 @@ export default function courseDetail() {
 													<label className="fw-bold fs-1-5 pb-3">Author</label>{" "}
 													<br />
 													<label className="fs-1-5 text-secondary">
-														{course.author.nama}
+														{authorname}
 													</label>
 												</div>
 												<div className="fs-1-5">
 													<Icon icon="fa:calendar" color="#898989" />
 													<span className="ml-1 text-secondary px-2">
-														{new Date().toLocaleDateString()}
+														{releasedate}
 													</span>
 												</div>
 											</div>
@@ -73,15 +68,7 @@ export default function courseDetail() {
 									</div>
 									{/* End AuthorDetail */}
 									<p className="fs-1-5 lh-base m-4">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id
-										purus vestibulum massa neque. Quis vestibulum et quis arcu.
-										Et nulla neque ultricies suscipit. Elementum neque, nec
-										pharetra bibendum semper orci, aliquam augue sit. Felis duis
-										id arcu vitae sodales gravida. In vel tortor fames purus
-										aliquet. Natoque maecenas sit condimentum porttitor aliquam.
-										Pretium pellentesque lectus odio amet, et. Cursus lacinia
-										tortor arcu posuere nunc pellentesque est. Magna dignissim
-										laoreet integer facilisi quis.
+										{materi}
 									</p>
 									{/* Vote */}
 									<div className="Card-Detail px-5 py-3">
@@ -89,9 +76,9 @@ export default function courseDetail() {
 											<div>
 												<Icon icon="bi:award" color="#FF9900" height="40" />
 												<label id="totalVote" className="ms-2">
-													210
+													{vote}
 												</label>
-												<label className="ms-1 text-secondary">Views</label>
+												<label className="ms-1 text-secondary">Votes</label>
 											</div>
 
 											<div className="ms-2 d-flex align-items-center">
@@ -177,11 +164,7 @@ export default function courseDetail() {
 								</div>
 							</div>
 						</Container>
-					</>
-				);
-			})}
-
-			<Footer />
+			{/* <Footer /> */}
 		</>
 	);
 }

@@ -12,7 +12,7 @@ function ResetPass() {
             <div className="bg-forgot">
                 {!show && <Card style={{ width: '20rem', borderRadius: "10px"}}>
                 <Card.Body>
-                    <Card.Title><img style={{width: "250px", marginLeft: "20px"}} src={headReset}></img></Card.Title>
+                    <Card.Title><img style={{width: "250px"}} src={headReset}></img></Card.Title>
                 </Card.Body>
                 <InputGroup style={{padding: 20, marginTop: "-20px"}} className="mb-1">
                     <InputGroup.Text style={{backgroundColor: "white"}} id="basic-addon1"><img src={lockForgot}></img></InputGroup.Text>

@@ -25,11 +25,15 @@ import Course from "./components/Course";
 import CourseDetail from "./components/CourseDetail";
 
 import CourseData from "./data/course.json";
+
 import "../../rangkumin/src/styles/hero.css";
 
 function App() {
 	const [state, setState] = React.useState(false);
 	const [logo, setLogo] = React.useState("BNI");
+
+	const [course, setCourse] = React.useState(CourseData);
+
 	console.log(logo);
 
 	return (
@@ -38,18 +42,24 @@ function App() {
 
 			<BrowserRouter>
 				<Routes>
-					<Route path="/homepage" element={<Homepage />} />
+					<Route path="/" element={<Homepage />} />
 					<Route path="/login" element={<LeftSideLogin />} />
 					<Route path="/aboutUs" element={<AboutUs />} />
 					<Route path="/signup" element={<RightSideRegister />} />
 					<Route path="/course" element={<Course />} />
-					<Route path="/courseDetail/:id" element={<CourseDetail />} />
-					<Route path="/usersetting" element={<AdminSettings />} />
-					<Route 
+					<Route
+						path="/courseDetail/:id"
+						element= {<CourseDetail/>}/>
+
+					<Route
 						path="/payment"
 						element={<Hero setLogo={setLogo} setState={setState} />}
 					/>
 					<Route path="/subscribe" element={<CardSubscribe />} />
+					<Route path="/setting/user" element={<AccountSettings />} />
+					<Route path="/setting/admin" element={<AdminSettings />} />
+					<Route path="/forgetPassword" element={<ForgotPass />} />
+					<Route path="/resetPassword" element={<ResetPass />} />
 				</Routes>
 			</BrowserRouter>
 		</>

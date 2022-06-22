@@ -2,7 +2,7 @@
 import Logo from './../assets/Logo.png'
 import Search from './../assets/Search.png'
 import Profile from './../assets/Profile.png'
-import '../styles/nav-foot.css'
+// import '../styles/nav-foot.css'
 
 function Nav() {
 
