@@ -112,15 +112,17 @@ func (api *API) materibysubject(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	response.Materi1 = append(response.Materi1, Materi{
-		ID:              strconv.Itoa(int(materi1.ID)),
-		IDMateri:        materi1.IDMateri,
-		NamaMateri:      materi1.NamaMateri,
-		NamaSubject:     materi1.NamaSubject,
-		Tanggal:         materi1.Tanggal,
-		KategoriTingkat: materi1.KategoriTingkat,
-		File:            materi1.File,
-	})
+	for _, materi := range materi1 {
+		response.Materi1 = append(response.Materi1, Materi{
+			ID:              strconv.Itoa(int(materi.ID)),
+			IDMateri:        materi.IDMateri,
+			NamaMateri:      materi.NamaMateri,
+			NamaSubject:     materi.NamaSubject,
+			Tanggal:         materi.Tanggal,
+			KategoriTingkat: materi.KategoriTingkat,
+			File:            materi.File,
+		})
+	}
 
 	encoder.Encode(response)
 }
