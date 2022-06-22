@@ -14,7 +14,7 @@ type User struct {
 }
 
 type Materi struct {
-	ID              int64  `db:"id"`
+	ID              int    `db:"id"`
 	IDMateri        string `db:"id_materi"`
 	NamaMateri      string `db:"nama_materi"`
 	NamaSubject     string `db:"nama_subject"`

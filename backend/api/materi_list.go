@@ -71,7 +71,7 @@ func (api *API) materibyid(w http.ResponseWriter, req *http.Request) {
 	defer func() {
 		if err != nil {
 			w.WriteHeader(http.StatusBadRequest)
-			encoder.Encode(MateriListErrorResponse{Error: err.Error()})
+			//encoder.Encode(DashboardErrorResponse{Error: err.Error()})
 			return
 		}
 	}()
