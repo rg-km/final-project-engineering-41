@@ -19,13 +19,14 @@ func main() {
     username varchar(255) not null,
     email varchar(255) not null,
     password varchar(255) not null,
-    notelp integer not null,
+    notelp varchar(255) not null,
     role varchar(255) not null,
     loggedin boolean not null
 );
 
 CREATE TABLE IF NOT EXISTS materi (
     id integer not null primary key AUTOINCREMENT,
+    id_materi integer not null,
     nama_materi varchar(255) not null,
     nama_subject varchar(255) not null,
     date DATE not null,
@@ -43,27 +44,27 @@ CREATE TABLE IF NOT EXISTS sales (
     id integer not null primary key AUTOINCREMENT,
     date DATE not null,
     membership_id integer not null,
-    FOREIGN KEY (membership_id) REFERENCES membership(id)
+    FOREIGN KEY (membership_id) REFERENCES user(id)
 );
 
-INSERT INTO users(username,email, password, notelp, role, loggedin) VALUES
+INSERT INTO users(username, email, password, notelp, role, loggedin) VALUES
     ('deaashari','deaashari10@gmail.com', '1234','082372323045', 'admin', false),
     ('gilangg','gilang2@gmail.com', '0000','082324567842', 'studentfree', false),
     ('ahmadrid','ridwan@gmail.com', '1111','087908654829', 'studentbasic', false),
     ('viaalisti','via@gmail.com', '2222','086789356416', 'studentbasic', false),
     ('daffasyam','daffa@gmail.com', '3333','086354212349', 'studentprem', false);
 
-INSERT INTO materi(nama_materi, nama_subject, date, kategori_tingkat, file) VALUES
-    ('Indonesia pada Zaman Orde Baru', 'Sejarah', '22/02/2022', 'SMP', 'Indonesia melaksanakan'),
-    ('Bilangan Bulat', 'Matematika', '21/01/2022', 'SD', 'perbedaan bilangan bulat'),
-    ('Bilangan Prima', 'Matematika', '20/03/2021', 'SMP', '10 bilangan pertama prima'),
-    ('Indonesia pada Zaman Orde Lama', 'Sejarah', '12/03/2022', 'SMP', 'Indonesia adalah negara'),
-    ('Sistem Pernapasan', 'Biologi', '22/02/2022', 'SMA', 'Pernapasan pada manusia'),
-    ('Sistem Pencernaan', 'Biologi', '22/02/2022', 'SMA', 'Pencernaan adalah'),
-    ('Bidang Miring dan Katrol', 'Fisika', '22/02/2022', 'SMA', 'Bidang miring contohnya'),
-    ('Hukum Newton', 'Fisika', '22/02/2022', 'SMA', '3 Hukum Newton'),
-    ('Tenses', 'Bahasa Inggris', '22/02/2022', 'SMA', 'Past Tense'),
-    ('Greetings', 'Bahasa Inggris', '22/02/2022', 'SMP', 'How to say');
+    INSERT INTO materi(id_materi, nama_materi, nama_subject, date, kategori_tingkat, file) VALUES
+    ('1', 'Indonesia pada Zaman Orde Baru', 'Sejarah', '2022-02-22', 'SMP', 'Indonesia melaksanakan'),
+    ('2', 'Bilangan Bulat', 'Matematika', '2022-09-22', 'SD', 'perbedaan bilangan bulat'),
+    ('3','Bilangan Prima', 'Matematika', '2022-10-22', 'SMP', '10 bilangan pertama prima'),
+    ('4','Indonesia pada Zaman Orde Lama', 'Sejarah', '2022-01-21', 'SMP', 'Indonesia adalah negara'),
+    ('5','Sistem Pernapasan', 'Biologi', '2022-01-22', 'SMA', 'Pernapasan pada manusia'),
+    ('6','Sistem Pencernaan', 'Biologi', '2022-04-22', 'SMA', 'Pencernaan adalah'),
+    ('7','Bidang Miring dan Katrol', 'Fisika', '2022-05-22', 'SMA', 'Bidang miring contohnya'),
+    ('8','Hukum Newton', 'Fisika', '2022-06-22', 'SMA', '3 Hukum Newton'),
+    ('9','Tenses', 'Bahasa Inggris', '2022-07-22', 'SMA', 'Past Tense'),
+    ('10','Greetings', 'Bahasa Inggris', '2022-08-22', 'SMP', 'How to say');
     
 INSERT INTO membership(kategori_membership, harga) VALUES
     ('Free', 0),

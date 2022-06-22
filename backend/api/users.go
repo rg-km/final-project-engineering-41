@@ -14,7 +14,7 @@ type User struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
 	Email    string `json:"email"`
-	NoTelp   int    `json:"notelp"`
+	NoTelp   string `json:"notelp"`
 	Role     string `json:"role"`
 	Loggedin bool   `json:"loggedin"`
 }

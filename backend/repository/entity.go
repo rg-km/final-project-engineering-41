@@ -8,13 +8,14 @@ type User struct {
 	Email    string `db:"email"`
 	Password string `db:"password"`
 	Role     string `db:"role"`
-	NoTelp   int    `db:"notelp"`
+	NoTelp   string `db:"notelp"`
 	Loggedin bool   `db:"loggedin"`
 	Token    string `db:"token"`
 }
 
 type Materi struct {
-	ID              int    `db:"id"`
+	ID              int64  `db:"id"`
+	IDMateri        string `db:"id_materi"`
 	NamaMateri      string `db:"nama_materi"`
 	NamaSubject     string `db:"nama_subject"`
 	Tanggal         string `db:"date"`
