@@ -1,0 +1,46 @@
+*{
+  font-family: 'Inter', sans-serif;
+}
+
+.link{
+  text-decoration: none;
+  color: #fff;
+  padding: 20px;
+}
+.btn-Header{
+  background-color: #F55139;
+  color: white;
+  width: 100px;
+  height: 40px;
+
+  border: none;
+  border-radius: 5px;
+}
+
+.responsive-menu {
+  background-color: #13222c;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  display: none;
+}
+
+.responsive-menu ul li {
+  padding: 10px;
+  font-size: 1.25rem;
+  color :white; 
+  text-decoration: none;
+}
+
+.active-transition {
+  display: block;
+}
+
+.logo-responsive {
+  max-width: 200px;
+}
+@media only screen and (max-width: 768px) {
+  .logo-responsive {
+    max-width: 150px;
+  }
+}

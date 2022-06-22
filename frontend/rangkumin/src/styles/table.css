@@ -1,0 +1,24 @@
+.td {
+  padding: 10px;
+}
+.custom-red {
+  background-color: #ba3521;
+}
+.custom-green {
+  background: #0fa958;
+}
+
+.width-paid {
+  width: 45%;
+}
+.select-set select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+}
+
+@media only screen and (max-width: 372px) {
+  .width-paid {
+    width: 100%;
+  }
+}
