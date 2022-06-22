@@ -45,7 +45,6 @@ function App() {
 					<Route path="/course" element={<Course />} />
 					<Route path="/courseDetail/:id" element={<CourseDetail />} />
 					<Route path="/usersetting" element={<AdminSettings />} />
-
 					<Route 
 						path="/payment"
 						element={<Hero setLogo={setLogo} setState={setState} />}
