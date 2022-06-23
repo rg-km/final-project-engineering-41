@@ -9,5 +9,5 @@ import (
 
 func TestRepository(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Repository Suite")
+	RunSpecs(t, "Repository Test")
 }
