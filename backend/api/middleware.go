@@ -19,6 +19,7 @@ func (api *API) AllowOrigin(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Access-Control-Allow-Credentials", "true")
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.Header().Set("Content-Type", "multipart/form-data; charset=utf-8")
 	if req.Method == "OPTIONS" {
 		w.WriteHeader(http.StatusOK)
 	}
