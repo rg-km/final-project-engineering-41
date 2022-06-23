@@ -8,12 +8,13 @@ import { Form, Button, Container } from "react-bootstrap";
 import { Link, Navigate, Route, Routes, useNavigate } from "react-router-dom";
 
 // Zustand
-import formData from "../stores/formData"
+import formData from "../stores/formData";
+import userData from "../stores/userData";
 
-import UserData from "../data/user.json";
+// import UserData from "../data/user.json";
 
 export function LeftSideLogin() {
-	const { emailData, passwordData } = formData ((state) => state);
+	const { emailData, passwordData } = formData((state) => state);
 
 	const navigate = useNavigate();
 
@@ -25,19 +26,24 @@ export function LeftSideLogin() {
 		navigate("/signup");
 	};
 
-	const [email, setEmail] = React.useState("");
-	const [password, setPassword] = React.useState("");
+	// const [email, setEmail] = React.useState("");
+	// const [password, setPassword] = React.useState("");
+	const { user, url } = userData((state) => state);
 
-	function validateForm() {
-		return email.length > 0 && password.length > 0;
-	}
+	React.useEffect(() => {
 
-	function handleSubmit(event) {
-		event.preventDefault();
-	}
+	}, []);
+
+	// function validateForm() {
+	// 	return email.length > 0 && password.length > 0;
+	// }
+
+	// function handleSubmit(event) {
+	// 	event.preventDefault();
+	// }
 
 	return (
-		<body>
+		<>
 			<div className="side">
 				<img className="ellipse" src={ellipse} alt="ellipse" />
 				<img className="model3d" src={model3d} alt="3D Model" />
@@ -61,8 +67,8 @@ export function LeftSideLogin() {
 							style={{ width: "150%" }}
 							type="email"
 							placeholder={emailData}
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
+							// value={email}
+							// onChange={(e) => setEmail(e.target.value)}
 						/>
 						<Form.Text className="text-muted">
 							We'll never share your email with anyone else.
@@ -74,8 +80,8 @@ export function LeftSideLogin() {
 							style={{ width: "150%" }}
 							type="password"
 							placeholder={passwordData}
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
+							// value={password}
+							// onChange={(e) => setPassword(e.target.value)}
 						/>
 						<a
 							href="/forgetPassword"
@@ -97,9 +103,12 @@ export function LeftSideLogin() {
 							}}
 							size="xl"
 							type="submit"
-							onClick={navigateToHomepage}>
+							// onClick={navigateToHomepage}
+							onClick={() => {
+							}}>
 							Login
 						</Button>
+						{console.log("user", user)}
 					</div>
 					<Form.Text className="text-muted">
 						Don’t have any account?{" "}
@@ -109,7 +118,7 @@ export function LeftSideLogin() {
 					</Form.Text>
 				</Form>
 				{/* Mobile Form */}
-				<Form className="mobile-login-form">
+				{/* <Form className="mobile-login-form">
 					<Form.Group className="mb-3" controlId="formBasicEmail">
 						<Form.Label>Email address</Form.Label>
 						<Form.Control type="email" placeholder="Enter your email" />
@@ -145,8 +154,8 @@ export function LeftSideLogin() {
 							Sign In
 						</a>
 					</Form.Text>
-				</Form>
+				</Form> */}
 			</div>
-		</body>
+		</>
 	);
 }

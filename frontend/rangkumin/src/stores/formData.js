@@ -1,5 +1,4 @@
-import create from "zustand/react";
-import React from "react";
+import create from "zustand";
 
 const formData = create((set) => ({
     emailData : "Enter Your Email",
