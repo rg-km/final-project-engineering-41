@@ -19,7 +19,7 @@ function Account() {
             <div>
                 <div>
                     <div className="d-flex mt-5 justify-content-between align-items-center flex-column-reverse flex-md-row">
-                        <div>
+                        {/* <div>
                             <p className='h4 fw-bolder'>Your profile picture</p>
                             <div className="d-flex py-5 align-items-center">
                                 <img className="profile-account" src={ProfileIcon} alt="" />
@@ -29,7 +29,7 @@ function Account() {
                                 </div>
                             </div>
                             <p className='text-muted'>*Ukuran Foto profile blabla. 200 x 200</p>
-                        </div>
+                        </div> */}
                         <div style={{ width: "100%", display: "flex", justifyContent: "flex-end" }}>
                             <img className="banner" src={BannerRight} alt="" />
                         </div>

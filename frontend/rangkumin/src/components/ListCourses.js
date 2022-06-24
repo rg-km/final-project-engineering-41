@@ -18,7 +18,7 @@ export default function ListCourses() {
 	return (
 		<>
 			<Container>
-				{courses?.map((course, idx) => {
+				{courses?.slice(0, 5).map((course, idx) => {
 					return (
 						<Link
 							to={`/courseDetail/${course.ID}`}
@@ -34,7 +34,7 @@ export default function ListCourses() {
 												<img
 													src={
 														course?.Thumbnail ||
-														"https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/topic_centers/depression/1296x728_HEADER_How-crafting-can-help-depression.jpg?w=1155&h=1528"
+														"https://via.placeholder.com/400X250?text=DEFAULT-IMAGE"
 													}
 													className="img-fluid rounded"></img>
 											</div>

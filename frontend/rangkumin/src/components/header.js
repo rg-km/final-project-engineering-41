@@ -1,28 +1,33 @@
-import React from "react";
+import React  from "react";
 // Import Logo & Icon
 import Logo from "./../assets/Logo.png";
-import Profile from "./../assets/Profile.png";
+// import Profile from "./../assets/Profile.png";
 import { Icon } from "@iconify/react";
 import { Link, useNavigate } from "react-router-dom";
 
 import "../styles/header.css";
 import userData from "../stores/userData";
-import { Button } from "react-bootstrap";
+import { Button, Dropdown, Modal } from "react-bootstrap";
 
 function Header() {
-	const navigate = useNavigate()
-	const {user, doLogout} = userData(s => s)
+	const navigate = useNavigate();
+	const { user, doLogout } = userData((s) => s);
 	const [active, setActive] = React.useState(false);
+	const [show, setShow] = React.useState(false);
 
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
 
-	React.useEffect(() => {
-		// if (localStorage.getItem("user")) {
-		// 	setUser(JSON.parse(localStorage.getItem("user")));
-		// 	setIsLogin(true);
-		// } else {
-		// 	setIsLogin(false);
-		// }
-	}, [user]);
+	React.useEffect(() => {}, [user]);
+
+	const ToSettings = () => {
+		navigate("/settings/:roles");
+	};
+
+	const ToLogout = () => {
+		// alert("Logout Success");
+		doLogout(navigate);
+	};
 
 	return (
 		<>
@@ -40,36 +45,48 @@ function Header() {
 					<Link className="link" to="/aboutUs">
 						About Us
 					</Link>
-					<Button className="link" onClick={() => doLogout(navigate)}>
-						Logout
-					</Button>
 				</div>
-				{JSON.stringify(user) !== '{}' ? (
-					<Link
-						to="/settings"
-						style={{ maxWidth: "230px" }}
-						className="d-none d-md-flex align-items-center justify-content-center text-decoration-none">
-						<div
-							style={{
-								borderRadius: "25px",
-								padding: "2px",
-								paddingLeft: "5px",
-								backgroundColor: "rgba(186,53,33,0.54)",
-							}}
-							className="profile d-flex align-items-center text-light">
-							<div className="px-3">Via Listi A</div>
-							<img className="icon" src={Profile} alt="" />
-						</div>
-						<Icon
-							style={{
-								backgroundColor: "#F55139",
-								borderRadius: "50%",
-								padding: "8px",
-							}}
-							className="text-light fs-1 ms-3"
-							icon="ant-design:setting-outlined"
-						/>
-					</Link>
+				{JSON.stringify(user) !== "{}" ? (
+					<>
+						<Dropdown>
+							<Link
+								to="#"
+								style={{ maxWidth: "230px" }}
+								className="d-none d-md-flex align-items-center justify-content-center text-decoration-none">
+								<Dropdown.Toggle
+									id="dropdown-autoclose-true"
+									style={{
+										borderRadius: "25px",
+										padding: "1px",
+										backgroundColor: "rgba(186,53,33,0.54)",
+										border: "none",
+									}}
+									className="d-flex align-items-center text-light pe-3">
+									<Icon
+										style={{
+											backgroundColor: "#F55139",
+											borderRadius: "50%",
+											padding: "8px",
+										}}
+										className="text-light fs-1"
+										icon="ant-design:setting-outlined"
+									/>
+									<div className="ps-3">{user.username}</div>
+									{/* <img className="icon" src={Profile} alt="" /> */}
+								</Dropdown.Toggle>
+							</Link>
+
+							<Dropdown.Menu>
+								<Dropdown.Item className="link" onClick={ToSettings}>
+									Settings
+								</Dropdown.Item>
+								<Dropdown.Divider />
+								<Dropdown.Item className="link" onClick={handleShow}>
+									Logout
+								</Dropdown.Item>
+							</Dropdown.Menu>
+						</Dropdown>
+					</>
 				) : (
 					<a
 						href="/login"
@@ -77,6 +94,22 @@ function Header() {
 						<button className="btn-Custom px-4 py-2">Log In</button>
 					</a>
 				)}
+
+				{/* Modal ToLogout */}
+				<Modal show={show} onHide={handleClose} animation={false}>
+					<Modal.Header closeButton>
+						<Modal.Title>Yakin Ingin Logout?</Modal.Title>
+					</Modal.Header>
+					{/* <Modal.Body></Modal.Body> */}
+					<Modal.Footer>
+						<Button variant="secondary" onClick={handleClose}>
+							Close
+						</Button>
+						<Button variant="primary" onClick={ToLogout}>
+							LogOut
+						</Button>
+					</Modal.Footer>
+				</Modal>
 
 				{/* Menu Bar Icon  */}
 				<Icon
