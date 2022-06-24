@@ -1,37 +1,40 @@
-import React from "react";
 import create from "zustand";
 import axios from "axios";
+import {persist} from "zustand/middleware"
+import Cookies from "universal-cookie"
 
-const userData = create((set) => ({
-	//fetch request to get user data from http://localhost:8080/api/user/login
-	user: [],
-    fetch
+const cookies = new Cookies()
+
+const userData = create(persist((set) => ({
+	user: {},
+	fetch: async (body, navigate) => {
+		try {
+			const response = await axios.post('http://localhost:8080/api/user/login', body, {
+				withCredentials: true,
+				headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			})
+
+			set({user: response.data})
+			navigate("/", {
+				replace: true
+			});
+		} catch (error) {	
+			set({user: {}})
+		}
+	},
+	doLogout: async (navigate) => {
+		try {
+			cookies.remove('token')
+
+			set({user: {}})
+			navigate("/", {
+				replace: true
+			});
+		} catch (error) {
+		}
+	}
+}), {
+	name: "user"
 })); // userData
 
 export default userData;
-
-/*
-user: [],
-
-	getUser: async () => {
-		const response = await axios.get("http://localhost:8080/api/user/login");
-		set((state) => ({
-			user: response.data
-		}));
-	},
-
-*/
-
-// fetch("http://localhost:8080/api/user/login", {
-//     method: "POST",
-//     headers: {
-//         "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify({
-//         email: " ",
-//         password: ""
-//     },
-//     }).then(res => {
-//     console.log(res)
-//     set(res.data)
-// })

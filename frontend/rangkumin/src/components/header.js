@@ -3,24 +3,26 @@ import React from "react";
 import Logo from "./../assets/Logo.png";
 import Profile from "./../assets/Profile.png";
 import { Icon } from "@iconify/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "../styles/header.css";
+import userData from "../stores/userData";
+import { Button } from "react-bootstrap";
 
 function Header() {
+	const navigate = useNavigate()
+	const {user, doLogout} = userData(s => s)
 	const [active, setActive] = React.useState(false);
 
-	const [user, setUser] = React.useState({});
-	const [isLogin, setIsLogin] = React.useState(false);
 
 	React.useEffect(() => {
-		if (localStorage.getItem("user")) {
-			setUser(JSON.parse(localStorage.getItem("user")));
-			setIsLogin(true);
-		} else {
-			setIsLogin(false);
-		}
-	}, []);
+		// if (localStorage.getItem("user")) {
+		// 	setUser(JSON.parse(localStorage.getItem("user")));
+		// 	setIsLogin(true);
+		// } else {
+		// 	setIsLogin(false);
+		// }
+	}, [user]);
 
 	return (
 		<>
@@ -38,8 +40,11 @@ function Header() {
 					<Link className="link" to="/aboutUs">
 						About Us
 					</Link>
+					<Button className="link" onClick={() => doLogout(navigate)}>
+						Logout
+					</Button>
 				</div>
-				{isLogin ? (
+				{JSON.stringify(user) !== '{}' ? (
 					<Link
 						to="/settings"
 						style={{ maxWidth: "230px" }}
