@@ -17,7 +17,8 @@ type Materi struct {
 	NamaSubject     string `db:"nama_subject"`
 	Tanggal         string `db:"date"`
 	KategoriTingkat string `db:"kategori_tingkat"`
-	File            string `db:"file"`
+	Vote            string `db:"vote"`
+	Teks            string `db:"teks"`
 }
 
 type MateriListSuccessResponse struct {
@@ -51,7 +52,8 @@ func (api *API) materiList(w http.ResponseWriter, req *http.Request) {
 			NamaSubject:     materi.NamaSubject,
 			Tanggal:         materi.Tanggal,
 			KategoriTingkat: materi.KategoriTingkat,
-			File:            materi.File,
+			Vote:            materi.Vote,
+			Teks:            materi.Teks,
 		})
 	}
 
@@ -86,7 +88,8 @@ func (api *API) materibyid(w http.ResponseWriter, req *http.Request) {
 		NamaSubject:     materi1.NamaSubject,
 		Tanggal:         materi1.Tanggal,
 		KategoriTingkat: materi1.KategoriTingkat,
-		File:            materi1.File,
+		Vote:            materi1.Vote,
+		Teks:            materi1.Teks,
 	})
 
 	encoder.Encode(response)
@@ -120,9 +123,27 @@ func (api *API) materibysubject(w http.ResponseWriter, req *http.Request) {
 			NamaSubject:     materi.NamaSubject,
 			Tanggal:         materi.Tanggal,
 			KategoriTingkat: materi.KategoriTingkat,
-			File:            materi.File,
+			Vote:            materi.Vote,
+			Teks:            materi.Teks,
 		})
 	}
 
 	encoder.Encode(response)
+}
+func (api *API) uploadmateri(w http.ResponseWriter, req *http.Request) {
+	api.AllowOrigin(w, req)
+	var s Materi
+	err := json.NewDecoder(req.Body).Decode(&s)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+	res, err := api.materiRepo.Upload(s.IDMateri, s.NamaMateri, s.NamaSubject, s.Tanggal, s.KategoriTingkat, s.Teks)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(res)
+
 }

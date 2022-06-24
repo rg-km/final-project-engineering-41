@@ -20,7 +20,8 @@ type Materi struct {
 	NamaSubject     string `db:"nama_subject"`
 	Tanggal         string `db:"date"`
 	KategoriTingkat string `db:"kategori_tingkat"`
-	File            string `db:"file"`
+	Vote            string `db:"vote"`
+	Teks            string `db:"teks"`
 }
 
 type Product struct {
