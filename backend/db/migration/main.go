@@ -23,7 +23,6 @@ func main() {
     role varchar(255) not null,
     loggedin boolean not null
 );
-
 CREATE TABLE IF NOT EXISTS materi (
     id integer not null primary key AUTOINCREMENT,
     id_materi integer not null,
@@ -34,27 +33,23 @@ CREATE TABLE IF NOT EXISTS materi (
     vote varchar(255) not null,
     teks varchar(255) not null
 );
-
 CREATE TABLE IF NOT EXISTS membership (
     id integer not null primary key AUTOINCREMENT,
     kategori_membership varchar(255) not null,
     harga integer not null
 );
-
 CREATE TABLE IF NOT EXISTS sales (
     id integer not null primary key AUTOINCREMENT,
     date DATE not null,
     membership_id integer not null,
     FOREIGN KEY (membership_id) REFERENCES user(id)
 );
-
 INSERT INTO users(username, email, password, notelp, role, loggedin) VALUES
     ('deaashari','deaashari10@gmail.com', '1234','082372323045', 'admin', false),
     ('gilangg','gilang2@gmail.com', '0000','082324567842', 'studentfree', false),
     ('ahmadrid','ridwan@gmail.com', '1111','087908654829', 'studentbasic', false),
     ('viaalisti','via@gmail.com', '2222','086789356416', 'studentbasic', false),
     ('daffasyam','daffa@gmail.com', '3333','086354212349', 'studentprem', false);
-
     INSERT INTO materi(id_materi, nama_materi, nama_subject, date, kategori_tingkat,vote, teks) VALUES
     ('1', 'Indonesia pada Zaman Orde Baru', 'Sejarah', '2022-02-22', 'SMP', '0', 'Indonesia melaksanakan'),
     ('2', 'Bilangan Bulat', 'Matematika', '2022-09-22', 'SD','0', 'perbedaan bilangan bulat'),

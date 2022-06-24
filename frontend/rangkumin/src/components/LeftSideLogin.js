@@ -1,6 +1,6 @@
 import "../App.css";
 import "../styles/loginReg.css";
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import ellipse from "../assets/loginPage/ellipse.png";
 import model3d from "../assets/loginPage/object3d.png";
 import logo from "../assets/loginPage/logo.png";
@@ -15,32 +15,28 @@ import userData from "../stores/userData";
 
 export function LeftSideLogin() {
 	const { emailData, passwordData } = formData((state) => state);
+	const {fetch, user} = userData(s => s)
+	const [email, setEmail] = useState("")
+	const [password, setPassword] = useState("")
 
 	const navigate = useNavigate();
 
-	const navigateToHomepage = () => {
-		navigate("/homepage");
+	const navigateToHomepage = (e) => {
+		e.preventDefault()
+		
+		fetch({
+			username: email,
+			password
+		}, navigate)
 	};
 
 	const navigateToSignup = () => {
 		navigate("/signup");
 	};
 
-	// const [email, setEmail] = React.useState("");
-	// const [password, setPassword] = React.useState("");
-	const { user, url } = userData((state) => state);
-
 	React.useEffect(() => {
 
 	}, []);
-
-	// function validateForm() {
-	// 	return email.length > 0 && password.length > 0;
-	// }
-
-	// function handleSubmit(event) {
-	// 	event.preventDefault();
-	// }
 
 	return (
 		<>
@@ -65,10 +61,10 @@ export function LeftSideLogin() {
 						<Form.Label>Email address</Form.Label>
 						<Form.Control
 							style={{ width: "150%" }}
-							type="email"
+							type="text"
 							placeholder={emailData}
-							// value={email}
-							// onChange={(e) => setEmail(e.target.value)}
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
 						/>
 						<Form.Text className="text-muted">
 							We'll never share your email with anyone else.
@@ -80,14 +76,10 @@ export function LeftSideLogin() {
 							style={{ width: "150%" }}
 							type="password"
 							placeholder={passwordData}
-							// value={password}
-							// onChange={(e) => setPassword(e.target.value)}
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
 						/>
-						<a
-							href="/forgetPassword"
-							className="text-decoration-none text-dark py-4">
-							Forget Password?
-						</a>
+						
 					</Form.Group>
 					<Form.Group className="mb-3" controlId="formBasicCheckbox">
 						<Form.Check type="checkbox" label="Remember Me" />
@@ -103,18 +95,17 @@ export function LeftSideLogin() {
 							}}
 							size="xl"
 							type="submit"
-							// onClick={navigateToHomepage}
-							onClick={() => {
-							}}>
+							onClick={navigateToHomepage}
+							>
 							Login
 						</Button>
 						{console.log("user", user)}
 					</div>
 					<Form.Text className="text-muted">
 						Don’t have any account?{" "}
-						<a className="sign-up-button" href="/signup">
+						<Link className="sign-up-button" to="/signup">
 							Sign Up
-						</a>
+						</Link>
 					</Form.Text>
 				</Form>
 				{/* Mobile Form */}
