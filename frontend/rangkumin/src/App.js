@@ -22,6 +22,7 @@ import AdminSettings from "./components/adminSettings.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AboutUs from "./components/AboutUs";
 import Course from "./components/Course";
+import Settings from "./components/Settings";
 import CourseDetail from "./components/CourseDetail";
 
 import CourseData from "./data/course.json";
@@ -56,8 +57,9 @@ function App() {
 						element={<Hero setLogo={setLogo} setState={setState} />}
 					/>
 					<Route path="/subscribe" element={<CardSubscribe />} />
-					<Route path="/setting/user" element={<AccountSettings />} />
-					<Route path="/setting/admin" element={<AdminSettings />} />
+					{/* <Route path="/settings/:role" element={<Settings />} /> */}
+					<Route path="/settings/user" element={<AccountSettings />} />
+					<Route path="/settings/admin" element={<AdminSettings />} />
 					<Route path="/forgetPassword" element={<ForgotPass />} />
 					<Route path="/resetPassword" element={<ResetPass />} />
 				</Routes>

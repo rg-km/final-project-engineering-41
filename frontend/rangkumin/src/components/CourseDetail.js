@@ -50,7 +50,7 @@ export default function CourseDetail() {
 					</div>
 				</div>
 				<div className="w-100 thumbnail">
-					<img className="img-fluid" src={""}></img>
+					<img className="img-fluid" src={detail?.Thumbnail ||"https://via.placeholder.com/400X250?text=DEFAULT-IMAGE"}></img>
 				</div>
 			</div>
 
@@ -89,7 +89,7 @@ export default function CourseDetail() {
 								<div>
 									<Icon icon="bi:award" color="#FF9900" height="40" />
 									<label id="totalVote" className="ms-2">
-										{"vote"}
+										0
 									</label>
 									<label className="ms-1 text-secondary">Votes</label>
 								</div>

@@ -38,6 +38,8 @@ function Homepage() {
         navigate('/login')
     }
 
+    let loop = 3;
+
     return (
     <>
         <Container fluid style={{ backgroundColor : "#13222C", }}>   
@@ -184,6 +186,7 @@ function Homepage() {
                 </div>
                 
                 <Row className="row justify-content-center md-3 w-100">
+
 				<Col>
 					<Card
 						style={{ width: "100%" }}
