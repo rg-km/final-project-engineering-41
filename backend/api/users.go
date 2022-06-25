@@ -13,8 +13,8 @@ type UsersListErrorResponse struct {
 type User struct {
 	ID       string `json:"id"`
 	Username string `json:"username"`
-	Password string `json:"password"`
 	Email    string `json:"email"`
+	Password string `json:"password"`
 	NoTelp   string `json:"notelp"`
 	Role     string `json:"role"`
 	Loggedin bool   `json:"loggedin"`
@@ -41,6 +41,7 @@ func (api *API) userList(w http.ResponseWriter, req *http.Request) {
 
 	for _, user := range users {
 		response.Users = append(response.Users, User{
+			ID:       strconv.Itoa(int(user.ID)),
 			Username: user.Username,
 			Email:    user.Email,
 			Password: user.Password,

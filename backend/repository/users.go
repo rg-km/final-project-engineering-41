@@ -39,7 +39,7 @@ func (u *UserRepository) FetchUsers() ([]User, error) {
 	for rows.Next() {
 		var user User
 
-		err = rows.Scan(&user.ID, &user.Username, &user.Password, &user.Role, &user.NoTelp, &user.Loggedin)
+		err = rows.Scan(&user.ID, &user.Username, &user.Email, &user.Password, &user.Role, &user.NoTelp, &user.Loggedin)
 		if err != nil {
 			return users, err
 		}
