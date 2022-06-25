@@ -69,6 +69,7 @@ func NewAPI(usersRepo repository.UserRepository, materiRepo repository.MateriRep
 	mux.Handle("/api/user/login", api.POST(http.HandlerFunc(api.login)))
 	mux.Handle("/api/user/logout", api.POST(http.HandlerFunc(api.logout)))
 	mux.Handle("/api/user/register", api.POST(http.HandlerFunc(api.register)))
+	mux.Handle("/api/user", api.GET(api.AuthMiddleWare(http.HandlerFunc(api.userList))))
 
 	// API with AuthMiddleware:
 	mux.Handle("/api/materi", api.GET(api.AuthMiddleWare(http.HandlerFunc(api.materiList))))
