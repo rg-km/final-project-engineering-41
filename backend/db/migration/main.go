@@ -46,10 +46,10 @@ CREATE TABLE IF NOT EXISTS sales (
 );
 INSERT INTO users(username, email, password, notelp, role, loggedin) VALUES
     ('deaashari','deaashari10@gmail.com', '1234','082372323045', 'admin', false),
-    ('gilangg','gilang2@gmail.com', '0000','082324567842', 'studentfree', false),
-    ('ahmadrid','ridwan@gmail.com', '1111','087908654829', 'studentbasic', false),
-    ('viaalisti','via@gmail.com', '2222','086789356416', 'studentbasic', false),
-    ('daffasyam','daffa@gmail.com', '3333','086354212349', 'studentprem', false);
+    ('gilangg','gilang2@gmail.com', '0000','082324567842', 'user', false),
+    ('ahmadrid','ridwan@gmail.com', '1111','087908654829', 'user', false),
+    ('viaalisti','via@gmail.com', '2222','086789356416', 'user', false),
+    ('daffasyam','daffa@gmail.com', '3333','086354212349', 'user', false);
     INSERT INTO materi(id_materi, nama_materi, nama_subject, date, kategori_tingkat,vote, teks) VALUES
     ('1', 'Indonesia pada Zaman Orde Baru', 'Sejarah', '2022-02-22', 'SMP', '0', 'Indonesia melaksanakan'),
     ('2', 'Bilangan Bulat', 'Matematika', '2022-09-22', 'SD','0', 'perbedaan bilangan bulat'),

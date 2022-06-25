@@ -130,15 +130,16 @@ func (api *API) materibysubject(w http.ResponseWriter, req *http.Request) {
 
 	encoder.Encode(response)
 }
+
 func (api *API) uploadmateri(w http.ResponseWriter, req *http.Request) {
 	api.AllowOrigin(w, req)
-	var s Materi
-	err := json.NewDecoder(req.Body).Decode(&s)
+	var materi Materi
+	err := json.NewDecoder(req.Body).Decode(&materi)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	res, err := api.materiRepo.Upload(s.IDMateri, s.NamaMateri, s.NamaSubject, s.Tanggal, s.KategoriTingkat, s.Teks)
+	res, err := api.materiRepo.Upload(materi.NamaMateri, materi.NamaSubject, materi.KategoriTingkat, materi.Teks)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
