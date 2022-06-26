@@ -125,3 +125,38 @@ func (api *API) userbyid(w http.ResponseWriter, req *http.Request) {
 
 	encoder.Encode(response)
 }
+func (api *API) userbyusername(w http.ResponseWriter, req *http.Request) {
+	api.AllowOrigin(w, req)
+	encoder := json.NewEncoder(w)
+
+	response := UsersListSuccessResponse{}
+	response.Users = make([]User, 0)
+
+	username := req.URL.Query().Get("username")
+
+	users, err := api.usersRepo.FetchUserByUsername(username)
+	defer func() {
+		if err != nil {
+			w.WriteHeader(http.StatusBadRequest)
+			encoder.Encode(UsersListErrorResponse{Error: err.Error()})
+			return
+		}
+	}()
+	if err != nil {
+		return
+	}
+
+	for _, user := range users {
+		response.Users = append(response.Users, User{
+			ID:       strconv.Itoa(int(user.ID)),
+			Username: user.Username,
+			Email:    user.Email,
+			Password: user.Password,
+			NoTelp:   user.NoTelp,
+			Role:     user.Role,
+			Loggedin: user.Loggedin,
+		})
+	}
+
+	encoder.Encode(response)
+}
