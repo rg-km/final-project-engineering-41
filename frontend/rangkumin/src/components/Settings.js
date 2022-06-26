@@ -26,14 +26,14 @@ export default function Settings() {
 	//admin settings
 	const [setting, setSetting] = React.useState("account");
 
-	const { id } = useParams();
+	const { username } = useParams();
 	const [users, setRole] = React.useState({});
 
 	const fetchRole = async () => {
 		try {
-			const res = await axios.get(`http://localhost:8080/api/user/id`, {
+			const res = await axios.get(`http://localhost:8080/api/user/username`, {
 				params: {
-					id,
+					username,
 				},
 				withCredentials: true,
 			});

@@ -56,7 +56,7 @@ function App() {
 						element={<Hero setLogo={setLogo} setState={setState} />}
 					/>
 					<Route path="/subscribe" element={<CardSubscribe />} />
-					<Route path="/settings/:id" element={<Settings />} />
+					<Route path="/settings/:username" element={<Settings />} />
 					{/* {byRole === "admin" ? (
 						<Route path="/settings/admin" element={<AdminSettings />} />
 					) : (
