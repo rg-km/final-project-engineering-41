@@ -40,7 +40,7 @@ export default function CourseDetail() {
 	return (
 		<>
 			<Header />
-			<div className="position-relative" id={"id"}>
+			<div className="position-relative">
 				<div
 					className="position-absolute top-50 start-0 translate-middle-y postCategories px-5 py-2"
 					id="postCategories">

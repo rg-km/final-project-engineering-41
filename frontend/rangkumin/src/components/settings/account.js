@@ -7,7 +7,7 @@ import BannerRight from '../../assets/Banner-Right.png'
 import '../../styles/settings.css'
 import ProfileIcon from '../../assets/profile-icon.png'
 
-function Account() {
+function Account({userName, email, password, noTelp}) {
     return (
         <>
             <div className='d-flex mt-5 align-items-center justify-content-between'>
@@ -37,7 +37,7 @@ function Account() {
 
                     <div>
                         <p>Nama</p>
-                        <input className='my-2' value="Via Listi Anggraeny"></input>
+                        <input className='my-2' value={userName}></input>
                     </div>
                     <div className='mt-2'>
                         <p>Gender</p>
@@ -54,7 +54,7 @@ function Account() {
                     <div className="mt-2">
                         <div>
                             <p>Nomor Telpon</p>
-                            <input className='my-2' value="62 893 9201 29"></input>
+                            <input className='my-2' value={noTelp}></input>
                         </div>
                     </div>
                     <div className="d-flex flex-column flex-md-row justify-content-between">
@@ -67,7 +67,7 @@ function Account() {
                     <div>
                         <p>Email</p>
                         <div className='d-flex align-items-center'>
-                            <input style={{ color: "#D9D9D9" }} className="input-color my-3" value="vialistiii30@gmail.com" />
+                            <input style={{ color: "#D9D9D9" }} className="input-color my-3" value={email} />
                             <button style={{ maxWidth: "200px" }} className='custom-button bg-light border border-danger text-danger'>Change Email</button>
                         </div>
                     </div>
@@ -75,7 +75,7 @@ function Account() {
                     <div>
                         <p>Password</p>
                         <div className='d-flex align-items-center'>
-                            <input style={{ color: "#D9D9D9" }} className="input-color my-3" value="abcdefgh" type="password" />
+                            <input style={{ color: "#D9D9D9" }} className="input-color my-3" value={password} type="password" />
                             <button style={{ maxWidth: "200px" }} className='custom-button bg-light border border-danger text-danger'>Change Password</button>
                         </div>
                     </div>

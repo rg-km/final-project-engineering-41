@@ -9,9 +9,9 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import Header from "../components/header";
 import Footer from "../components/Footer";
 
-import { Routes, Route, Link } from "react-router-dom";
+// import { Routes, Route, Link } from "react-router-dom";
 
-function Settings() {
+function AdminSettings() {
 	const [setting, setSetting] = React.useState("account");
 
 	return (
@@ -123,4 +123,4 @@ function Settings() {
 	);
 }
 
-export default Settings;
+export default AdminSettings;

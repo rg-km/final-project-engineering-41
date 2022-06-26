@@ -1,13 +1,14 @@
-import React  from "react";
+import React from "react";
 // Import Logo & Icon
 import Logo from "./../assets/Logo.png";
 // import Profile from "./../assets/Profile.png";
 import { Icon } from "@iconify/react";
-import { Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 import "../styles/header.css";
 import userData from "../stores/userData";
 import { Button, Dropdown, Modal } from "react-bootstrap";
+import axios from "axios";
 
 function Header() {
 	const navigate = useNavigate();
@@ -20,8 +21,12 @@ function Header() {
 
 	React.useEffect(() => {}, [user]);
 
+	//user Settings
+	//get id user from http://localhost:8080/api/user/id
+
 	const ToSettings = () => {
-		navigate("/settings/:roles");
+		// const { id } = useParams();
+		navigate(`/settings/${user.username}`);
 	};
 
 	const ToLogout = () => {
