@@ -4,6 +4,7 @@ import Table from "react-bootstrap/Table";
 import { Icon } from "@iconify/react";
 import TablePost from "../props/tablepost.js";
 import Modal from "react-bootstrap/Modal";
+import coursesData from "../../stores/coursesData.js";
 
 function MyVerticallyCenteredModal(props) {
 	return (
@@ -11,31 +12,53 @@ function MyVerticallyCenteredModal(props) {
 			{...props}
 			size="lg"
 			aria-labelledby="contained-modal-title-vcenter"
-            // className="modal-dialog modal-dialog-scrollable"
+			// className="modal-dialog modal-dialog-scrollable"
 			centered>
 			<Modal.Header closeButton>
-				<Modal.Title id="contained-modal-title-vcenter" className="fw-bold">Add Post</Modal.Title>
+				<Modal.Title id="contained-modal-title-vcenter" className="fw-bold">
+					Add Post
+				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
 				<div className="py-3">
 					<p>Judul Materi</p>
-					<input type="text" placeholder="Masukan Judul" className="form-control" />
+					<input
+						type="text"
+						placeholder="Masukan Judul"
+						className="form-control"
+					/>
 				</div>
 				<div className="py-3">
 					<p>Kategori</p>
-					<input type="text" placeholder="Masukan Kategori" className="form-control" />
+					<input
+						type="text"
+						placeholder="Masukan Kategori"
+						className="form-control"
+					/>
 				</div>
 				<div className="py-3">
 					<p>Mata Pelajaran</p>
-					<input type="text" placeholder="Masukan Mata Pelajaran" className="form-control" />
+					<input
+						type="text"
+						placeholder="Masukan Mata Pelajaran"
+						className="form-control"
+					/>
 				</div>
 				<div className="py-3">
 					<p>Materi</p>
-					<textarea class="form-control" aria-label="With textarea" placeholder="Masukan Materi"></textarea>
+					<textarea
+						class="form-control"
+						aria-label="With textarea"
+						placeholder="Masukan Materi"></textarea>
 				</div>
 				<div className="py-3">
 					<p>Thumbnail</p>
-					<input type="file" placeholder="Title" className="form-control" accept="img"/>
+					<input
+						type="file"
+						placeholder="Title"
+						className="form-control"
+						accept="img"
+					/>
 				</div>
 			</Modal.Body>
 			<Modal.Footer>
@@ -50,6 +73,11 @@ function MyVerticallyCenteredModal(props) {
 
 function Post() {
 	const [modalShow, setModalShow] = React.useState(false);
+	const { courses, fetch } = coursesData((s) => s);
+
+	React.useEffect(() => {
+		fetch();
+	}, []);
 	return (
 		<>
 			<div className="d-flex mt-5 align-items-center justify-content-between">
@@ -80,9 +108,16 @@ function Post() {
 						</tr>
 					</thead>
 					<tbody>
-						<TablePost />
-						<TablePost />
-						<TablePost />
+						{courses.map((course, id) => (
+							<TablePost
+								key={id}
+								author={id}
+								judul={course.NamaMateri}
+								kategori={course.KategoriTingkat}
+								mataPelajaran={course.NamaSubject}
+								idMateri={course.IDMateri}
+							/>
+						))}
 					</tbody>
 				</table>
 

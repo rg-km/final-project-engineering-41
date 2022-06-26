@@ -7,6 +7,7 @@ const cookies = new Cookies()
 
 const userData = create(persist((set) => ({
 	user: {},
+	userList: [],
 	fetch: async (body, navigate) => {
 		try {
 			const response = await axios.post('http://localhost:8080/api/user/login', body, {
@@ -38,6 +39,21 @@ const userData = create(persist((set) => ({
 		}
 	},
 	
+	fetchUserList: async () => {
+		try {
+			const res = await axios.get('http://localhost:8080/api/user/role', {
+				params: {
+					role: "user",
+				},
+				withCredentials: true,
+			})
+			set({userList: res?.data?.users})
+			console.log(res?.data?.users)
+		} catch (error) {
+			set({userList: []})
+		}
+	},
+
 	doLogout: async (navigate) => {
 		try {
 			cookies.remove('token')
