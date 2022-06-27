@@ -58,7 +58,7 @@ export function LeftSideLogin() {
 				{/* Dekstop Form */}
 				<Form className="form-login">
 					<Form.Group className="mb-3" controlId="formBasicEmail">
-						<Form.Label>Email address</Form.Label>
+						<Form.Label>Username</Form.Label>
 						<Form.Control
 							style={{ width: "150%" }}
 							type="text"
@@ -81,9 +81,9 @@ export function LeftSideLogin() {
 						/>
 						
 					</Form.Group>
-					<Form.Group className="mb-3" controlId="formBasicCheckbox">
+					{/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
 						<Form.Check type="checkbox" label="Remember Me" />
-					</Form.Group>
+					</Form.Group> */}
 					<div className="d-grid gap-2 mb-2">
 						<Button
 							style={{

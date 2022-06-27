@@ -165,6 +165,8 @@ export default function Settings() {
 									email={users.email}
 									noTelp={users.notelp}
 								/>
+							) : setting === "post" ? (
+								<Post />
 							) : (
 								<Subscription />
 							)}
@@ -271,9 +273,12 @@ export default function Settings() {
 
 						<div className="p-5">
 							{setting === "account" ? (
-								<UserSetting nama={users.username} noTelp={users.notelp}/>
+								<UserSetting nama={users.username} noTelp={users.notelp} />
 							) : setting === "password" ? (
-								<PasswordSetting email={users.email} password={users.password}/>
+								<PasswordSetting
+									email={users.email}
+									password={users.password}
+								/>
 							) : (
 								<SubscriptionSetting />
 							)}

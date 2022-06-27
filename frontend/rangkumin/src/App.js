@@ -50,7 +50,7 @@ function App() {
 					<Route path="/signup" element={<RightSideRegister />} />
 					<Route path="/course" element={<Course />} />
 					<Route path="/courseDetail/:id" element={<CourseDetail />} />
-
+					<Route path="/payment" element={<Hero />} />
 					<Route
 						path="/payment"
 						element={<Hero setLogo={setLogo} setState={setState} />}

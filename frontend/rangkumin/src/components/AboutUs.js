@@ -10,7 +10,6 @@ import TeamVia from "../assets/AboutUs/Via.png";
 import TeamDea from "../assets/AboutUs/Dea.png";
 import TeamRidwan from "../assets/AboutUs/Ridwan.png";
 
-
 export default function AboutUs() {
 	return (
 		<>
@@ -101,6 +100,8 @@ export default function AboutUs() {
 								</div>
 							</div>
 						</Col>
+					</Row>
+					<Row className="d-flex justify-content-center">
 						<Col className="d-flex justify-content-center my-2">
 							<div
 								className="text-center p-2"

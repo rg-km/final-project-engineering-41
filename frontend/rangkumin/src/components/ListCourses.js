@@ -46,7 +46,7 @@ export default function ListCourses() {
 												</Card.Title>
 												<Card.Text>
 													<p className="text-muted mt-3 text-materi">
-														{course.File}
+														{course.Teks}
 													</p>
 												</Card.Text>
 												<div className="d-flex justify-content-between">

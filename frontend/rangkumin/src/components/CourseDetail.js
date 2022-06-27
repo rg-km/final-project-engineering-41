@@ -12,6 +12,7 @@ import "../styles/courseDetail.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Header from "./header";
+import Footer from "./Footer";
 
 export default function CourseDetail() {
 	const { id } = useParams();
@@ -50,7 +51,12 @@ export default function CourseDetail() {
 					</div>
 				</div>
 				<div className="w-100 thumbnail">
-					<img className="img-fluid" src={detail?.Thumbnail ||"https://via.placeholder.com/400X250?text=DEFAULT-IMAGE"}></img>
+					<img
+						className="img-fluid"
+						src={
+							detail?.Thumbnail ||
+							"https://via.placeholder.com/400X250?text=DEFAULT-IMAGE"
+						}></img>
 				</div>
 			</div>
 
@@ -60,16 +66,11 @@ export default function CourseDetail() {
 						<h2 className="fw-bolder ">{detail?.NamaMateri}</h2>
 						<p className="fs-1-5 lh-base m-4">{detail?.File}</p>
 						{/* AuthorDetail */}
-						<div className="Card-Detail px-5 py-3">
-							<div className="d-flex align-items-center">
-								<Image
-									className="rounded-circle"
-									src="https://via.placeholder.com/100"
-									alt="profile"
-								/>
-								<div className="ml-2 d-flex align-items-center">
-									<div className="mx-5">
-										<label className="fw-bold fs-1-5 pb-3">Author</label> <br />
+						<div className="Card-Detail px-5 py-2">
+							<div className="d-flex align-items-center justify-content-between">
+								<div className="d-flex">
+									<div className="me-4">
+										<label className="fw-bold fs-1-5 me-2">Author</label>
 										<label className="fs-1-5 text-secondary">{"Admin"}</label>
 									</div>
 									<div className="fs-1-5">
@@ -82,7 +83,7 @@ export default function CourseDetail() {
 							</div>
 						</div>
 						{/* End AuthorDetail */}
-						<p className="fs-1-5 lh-base m-4">0</p>
+						<p className="fs-1-5 lh-base m-4">{detail?.Teks}</p>
 						{/* Vote */}
 						<div className="Card-Detail px-5 py-3">
 							<div className="d-flex align-items-center justify-content-between">
@@ -166,6 +167,7 @@ export default function CourseDetail() {
 					</div>
 				</div>
 			</Container>
+			<Footer />
 			{/* <Footer /> */}
 		</>
 	);
