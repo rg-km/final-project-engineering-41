@@ -18,7 +18,7 @@ export default function ListCourses() {
 	return (
 		<>
 			<Container>
-				{courses?.slice(0, 5).map((course, idx) => {
+				{courses?.map((course, idx) => {
 					return (
 						<Link
 							to={`/courseDetail/${course.ID}`}

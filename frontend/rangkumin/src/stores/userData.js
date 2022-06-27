@@ -23,21 +23,6 @@ const userData = create(persist((set) => ({
 			set({user: {}})
 		}
 	},
-	fetchRegister: async (body, navigate) => {
-		try {
-			const response = await axios.post('http://localhost:8080/api/user/register', body, {
-				withCredentials: true,
-				headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			})
-
-			set({user: response.data})
-			navigate("/", {
-				replace: true
-			});
-		} catch (error) {
-			set({user: {}})
-		}
-	},
 	
 	fetchUserList: async () => {
 		try {

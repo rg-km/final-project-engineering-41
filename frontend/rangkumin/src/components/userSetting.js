@@ -1,85 +1,73 @@
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
+import profilePicture from "../assets/settings/profilePicture.png";
+import vector3d from "../assets/settings/3dassets.png";
 import { Icon } from "@iconify/react";
 
-export default function userSetting() {
+export default function userSetting({nama, noTelp}) {
 	return (
 		<>
 			<Container>
-				<h2 className="fw-bold mt-5 mb-3">Settings</h2>
-				<Row className="justify-content-center w-100">
-					<Col className="d-flex justify-content-end">
-						<Card
-							style={{
-								width: "50%",
-								background: "#BA3521",
-								boxShadow: "0px 2px 10px 2px rgba(0, 0, 0, 0.23)",
-								borderRadius: "20px",
-								border: "none",
-							}}>
-							<Card.Body>
-								<div className="text-center py-2">
-									<Icon icon="fa-solid:user-cog" color="white" height="50" />
-								</div>
-								<Card.Title
-									className="text-center fw-bold m-1"
-									style={{ color: "white" }}>
-									Account
-								</Card.Title>
-							</Card.Body>
-						</Card>
-					</Col>
-					<Col className="d-flex justify-content-center">
-						<Card
-							style={{
-								width: "50%",
-								background: "#FFFFFF",
-								boxShadow: "0px 2px 10px 2px rgba(0, 0, 0, 0.23)",
-								borderRadius: "20px",
-								border: "none",
-							}}>
-							<Card.Body>
-								<div className="text-center p-2">
-									<Icon
-										icon="carbon:security-services"
-										color="#1771a8"
-										height="50"
-									/>
-								</div>
-								<Card.Title
-									className="text-center fw-bold m-1"
-									style={{ color: "#1771a8" }}>
-									User
-								</Card.Title>
-							</Card.Body>
-						</Card>
-					</Col>
-					<Col className="d-flex justify-content-start">
-						<Card
-							style={{
-								width: "50%",
-								background: "#FFFFFF",
-								boxShadow: "0px 2px 10px 2px rgba(0, 0, 0, 0.23)",
-								borderRadius: "20px",
-								border: "none",
-							}}>
-							<Card.Body>
-								<div className="text-center p-2">
-									<Icon icon="ic:outline-payment" color="#0fa958" height="50" />
-								</div>
-								<Card.Title
-									className="text-center fw-bold m-1"
-									style={{ color: "#0fa958" }}>
-									Subscription
-								</Card.Title>
-							</Card.Body>
-						</Card>
-					</Col>
-				</Row>
+				<h2 style={{ fontWeight: "bold" }} className="mt-4">
+					Personal Info
+				</h2>
+				<h5 style={{ color: "gray" }}>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
+				</h5>
 
-				<hr className="my-4"></hr>
-
-				{/* Lanjut disini */}
+				<Form style={{ marginTop: "50px" }}>
+					<Form.Group
+						style={{ width: "50%" }}
+						className="mb-3"
+						controlId="formBasicNama">
+						<Form.Label>Nama</Form.Label>
+						<Form.Control type="nama" placeholder={nama} />
+					</Form.Group>
+					<Form.Group style={{ width: "50%" }} className="mb-3">
+						<Form.Label>Gender</Form.Label>
+						<Form.Select>
+							<option>Perempuan</option>
+							<option>Laki - Laki</option>
+						</Form.Select>
+					</Form.Group>
+					<Form.Group
+						style={{ width: "50%" }}
+						className="mb-3"
+						controlId="formBasicNoTelp">
+						<Form.Label>Nomor Telepon</Form.Label>
+						<Form.Control type="notelp" placeholder={noTelp} />
+					</Form.Group>
+					<Form.Text className="text-muted">
+						*Donec iaculis varius nunc vitae porta. Vestibulum nec sem quis
+						dolor convallis.s
+					</Form.Text>
+					<br></br>
+					<hr></hr>
+					<Button
+						style={{
+							width: "15%",
+							backgroundColor: "#F55139",
+							borderStyle: "none",
+							borderRadius: "5px",
+							marginLeft: "80%",
+						}}
+						className="mt-2 mb-2"
+						variant="primary"
+						type="submit">
+						Simpan Perubahan
+					</Button>
+					<hr></hr>
+				</Form>
+				<img
+					src={vector3d}
+					className="mt-5"
+					style={{
+						width: "40%",
+						position: "absolute",
+						top: "70%",
+						right: "5%",
+					}}></img>
 			</Container>
 		</>
 	);

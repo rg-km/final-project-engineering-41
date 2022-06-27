@@ -86,10 +86,10 @@ function AdminSettings() {
 								border: "none",
 							}}>
 							<Card.Body
-								name="subscription"
-								onClick={() => setSetting("subscription")}
+								name="User"
+								onClick={() => setSetting("User")}
 								className={`${
-									setting === "subscription" ? "text-light custom-green" : ""
+									setting === "User" ? "text-light custom-green" : ""
 								} shadow icon-box text-green-custom`}>
 								<div className="text-center p-2">
 									<Icon
@@ -99,7 +99,7 @@ function AdminSettings() {
 									/>
 								</div>
 								<Card.Title className="text-center fw-bold m-1">
-									Subscription
+									User
 								</Card.Title>
 							</Card.Body>
 						</Card>

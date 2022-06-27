@@ -1,104 +1,119 @@
 import React from "react";
-import { Container, Form, Button } from "react-bootstrap";
-import profilePicture from "../assets/settings/profilePicture.png";
-import vector3d from "../assets/settings/3dassets.png";
-import UserSetting from "./user/userSetting";
-import "../styles/settings.css";
-import Header from "./header";
-import Footer from "./Footer";
+import "../styles/adminSettings.css";
+import { Icon } from "@iconify/react";
+import { Container, Row, Col, Card } from "react-bootstrap";
+import UserSetting from "./userSetting";
+import SubscriptionSetting from "./SubscriptionSetting";
+import PasswordSetting from "./PasswordSetting";
+
+import Header from "../components/header";
+import Footer from "../components/Footer";
 
 export default function AccountSettings() {
+	const [setting, setSetting] = React.useState("account");
 	return (
 		<>
 			<Header />
 			<Container>
-				<UserSetting />
-				<h2 style={{ fontWeight: "bold" }} className="mt-4">
-					Personal Info
-				</h2>
-				<h5 style={{ color: "gray" }}>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
-				</h5>
-				{/* <h4 className="mt-5">Your Profile Picture</h4>
-			<img
-				style={{ width: "154px" }}
-				className="mt-4"
-				src={profilePicture}></img>
-			<br></br>
-			<Button
-				style={{
-					width: "15%",
-					backgroundColor: "#F55139",
-					borderStyle: "none",
-					borderRadius: "5px",
-				}}
-				className="mt-4">
-				Change Profile Picture
-			</Button>
-			<br></br>
-			<Button
-				style={{
-					width: "15%",
-					backgroundColor: "white",
-					borderColor: "#F55139",
-					borderRadius: "5px",
-					color: "#F55139",
-				}}
-				className="mt-3">
-				Delete
-			</Button> */}
-				<Form style={{ marginTop: "50px" }}>
-					<Form.Group
-						style={{ width: "50%" }}
-						className="mb-3"
-						controlId="formBasicNama">
-						<Form.Label>Nama</Form.Label>
-						<Form.Control type="nama" placeholder="Via Listi Anggraeny" />
-					</Form.Group>
-					<Form.Group style={{ width: "50%" }} className="mb-3">
-						<Form.Label>Gender</Form.Label>
-						<Form.Select>
-							<option>Perempuan</option>
-							<option>Laki - Laki</option>
-						</Form.Select>
-					</Form.Group>
-					<Form.Group
-						style={{ width: "50%" }}
-						className="mb-3"
-						controlId="formBasicNoTelp">
-						<Form.Label>Nomor Telepon</Form.Label>
-						<Form.Control type="notelp" placeholder="62 893 9201 29" />
-					</Form.Group>
-					<Form.Text className="text-muted">
-						*Donec iaculis varius nunc vitae porta. Vestibulum nec sem quis
-						dolor convallis.s
-					</Form.Text>
-					<br></br>
-					<hr></hr>
-					<Button
-						style={{
-							width: "15%",
-							backgroundColor: "#F55139",
-							borderStyle: "none",
-							borderRadius: "5px",
-							marginLeft: "80%",
-						}}
-						className="mt-2 mb-2"
-						variant="primary"
-						type="submit">
-						Simpan Perubahan
-					</Button>
-					<hr></hr>
-				</Form>
-				<img
-					src={vector3d}
-					className="mt-5"
-					style={{
-						width: "40%",
-						position: "absolute",
-						top: "70%",
-						right: "5%",
-					}}></img>
+				<h2 className="fw-bold mt-5 mb-3">Settings</h2>
+				<Row className="justify-content-center w-100">
+					<Col className="d-flex justify-content-end">
+						<Card
+							style={{
+								width: "50%",
+								background: "#FFFFFF",
+								boxShadow: "0px 2px 10px 2px rgba(0, 0, 0, 0.23)",
+								borderRadius: "20px",
+								border: "none",
+							}}>
+							<Card.Body
+								name="account"
+								onClick={() => setSetting("account")}
+								className={`${
+									setting === "account" ? "text-light custom-red" : ""
+								} shadow icon-box text-danger`}>
+								<div className="text-center py-2">
+									<Icon
+										className="iconify-settings"
+										icon="fa-solid:user-cog"
+										height="50"
+									/>
+								</div>
+								<Card.Title className="text-center fw-bold m-1">
+									Account
+								</Card.Title>
+							</Card.Body>
+						</Card>
+					</Col>
+					<Col className="d-flex justify-content-center">
+						<Card
+							style={{
+								width: "50%",
+								background: "#FFFFFF",
+								boxShadow: "0px 2px 10px 2px rgba(0, 0, 0, 0.23)",
+								borderRadius: "20px",
+								border: "none",
+							}}>
+							<Card.Body
+								name="post"
+								onClick={() => setSetting("post")}
+								className={`${
+									setting === "post" ? "text-light custom-blue" : ""
+								} shadow icon-box text-primary`}>
+								<div className="text-center p-2">
+									<Icon
+										className="iconify-settings"
+										icon="ic:round-post-add"
+										height="50"
+									/>
+								</div>
+								<Card.Title className="text-center fw-bold m-1">
+									Post
+								</Card.Title>
+							</Card.Body>
+						</Card>
+					</Col>
+					<Col className="d-flex justify-content-start">
+						<Card
+							style={{
+								width: "50%",
+								background: "#FFFFFF",
+								boxShadow: "0px 2px 10px 2px rgba(0, 0, 0, 0.23)",
+								borderRadius: "20px",
+								border: "none",
+							}}>
+							<Card.Body
+								name="User"
+								onClick={() => setSetting("User")}
+								className={`${
+									setting === "User" ? "text-light custom-green" : ""
+								} shadow icon-box text-green-custom`}>
+								<div className="text-center p-2">
+									<Icon
+										className="iconify-settings"
+										icon="ic:baseline-payment"
+										height="50"
+									/>
+								</div>
+								<Card.Title className="text-center fw-bold m-1">
+									User
+								</Card.Title>
+							</Card.Body>
+						</Card>
+					</Col>
+				</Row>
+
+				<hr className="my-4"></hr>
+
+				<div className="p-5">
+					{setting === "account" ? (
+						<UserSetting />
+					) : setting === "post" ? (
+						<PasswordSetting />
+					) : (
+						<SubscriptionSetting />
+					)}
+				</div>
 			</Container>
 			<Footer />
 		</>
